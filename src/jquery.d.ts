@@ -1,37 +1,8 @@
-// Type definitions for jQuery 1.10.x / 2.0.x
-// Project: http://jquery.com/
-// Definitions by: Boris Yankov <https://github.com/borisyankov/>, Christian Hoffmeister <https://github.com/choffmeister>, Steve Fenton <https://github.com/Steve-Fenton>, Diullei Gomes <https://github.com/Diullei>, Tass Iliopoulos <https://github.com/tasoili>, Jason Swearingen <https://github.com/jasons-novaleaf>, Sean Hill <https://github.com/seanski>, Guus Goossens <https://github.com/Guuz>, Kelly Summerlin <https://github.com/ksummerlin>, Basarat Ali Syed <https://github.com/basarat>, Nicholas Wolverson <https://github.com/nwolverson>, Derek Cicerone <https://github.com/derekcicerone>, Andrew Gaspar <https://github.com/AndrewGaspar>, James Harrison Fisher <https://github.com/jameshfisher>, Seikichi Kondo <https://github.com/seikichi>, Benjamin Jackman <https://github.com/benjaminjackman>, Poul Sorensen <https://github.com/s093294>, Josh Strobl <https://github.com/JoshStrobl>, John Reilly <https://github.com/johnnyreilly/>, Dick van den Brink <https://github.com/DickvdBrink>
-// Definitions: https://github.com/borisyankov/DefinitelyTyped
-
-/* *****************************************************************************
- Copyright (c) Microsoft Corporation. All rights reserved.
- Licensed under the Apache License, Version 2.0 (the "License"); you may not use
- this file except in compliance with the License. You may obtain a copy of the
- License at http://www.apache.org/licenses/LICENSE-2.0
-
- THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
- WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
- MERCHANTABLITY OR NON-INFRINGEMENT.
-
- See the Apache Version 2.0 License for specific language governing permissions
- and limitations under the License.
- ***************************************************************************** */
-
-interface Element {}
-interface Window {}
-interface Node {}
-interface Text {}
-interface XMLDocument {}
-interface HTMLElement {}
-interface XMLHttpRequest {}
-interface Document {}
-interface Event {}
 
 /**
  * Interface for the AJAX setting that will configure the AJAX request
  */
-interface JQueryAjaxSettings {
+export interface JQueryAjaxSettings {
     /**
      * The content type sent in the request header that tells the server what kind of response it will accept in return. If the accepts setting needs modification, it is recommended to do so once in the $.ajaxSetup() method.
      */
@@ -175,7 +146,7 @@ interface JQueryAjaxSettings {
 /**
  * Interface for the jqXHR object
  */
-interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
+export interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
     /**
      * The .overrideMimeType() method may be used in the beforeSend() callback function, for example, to modify the response content-type header. As of jQuery 1.5.1, the jqXHR object also contains the overrideMimeType() method (it was available in jQuery 1.4.x, as well, but was temporarily removed in jQuery 1.5).
      */
@@ -203,7 +174,7 @@ interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
 /**
  * Interface for the JQuery callback
  */
-interface JQueryCallback {
+export interface JQueryCallback {
     /**
      * Add a callback or a collection of callbacks to a callback list.
      *
@@ -237,7 +208,7 @@ interface JQueryCallback {
      *
      * @param arguments The argument or list of arguments to pass back to the callback list.
      */
-    fire(...arguments: any[]): JQueryCallback;
+    fire(...args: any[]): JQueryCallback;
 
     /**
      * Determine if the callbacks have already been called at least once.
@@ -286,7 +257,7 @@ interface JQueryCallback {
 /**
  * Allows jQuery Promises to interop with non-jQuery promises
  */
-interface JQueryGenericPromise<T> {
+export interface JQueryGenericPromise<T> {
     /**
      * Add handlers to be called when the Deferred object is resolved, rejected, or still in progress.
      *
@@ -307,18 +278,18 @@ interface JQueryGenericPromise<T> {
 /**
  * Interface for the JQuery promise/deferred callbacks
  */
-interface JQueryPromiseCallback<T> {
+export interface JQueryPromiseCallback<T> {
     (value?: T, ...args: any[]): void;
 }
 
-interface JQueryPromiseOperator<T, U> {
+export interface JQueryPromiseOperator<T, U> {
     (callback1: JQueryPromiseCallback<T>|JQueryPromiseCallback<T>[], ...callbacksN: Array<JQueryPromiseCallback<any>|JQueryPromiseCallback<any>[]>): JQueryPromise<U>;
 }
 
 /**
  * Interface for the JQuery promise, part of callbacks
  */
-interface JQueryPromise<T> extends JQueryGenericPromise<T> {
+export interface JQueryPromise<T> extends JQueryGenericPromise<T> {
     /**
      * Determine the current state of a Deferred object.
      */
@@ -358,7 +329,7 @@ interface JQueryPromise<T> extends JQueryGenericPromise<T> {
 /**
  * Interface for the JQuery deferred, part of callbacks
  */
-interface JQueryDeferred<T> extends JQueryGenericPromise<T> {
+export interface JQueryDeferred<T> extends JQueryGenericPromise<T> {
     /**
      * Determine the current state of a Deferred object.
      */
@@ -450,7 +421,7 @@ interface JQueryDeferred<T> extends JQueryGenericPromise<T> {
 /**
  * Interface of the JQuery extension of the W3C event object
  */
-interface BaseJQueryEventObject extends Event {
+export interface BaseJQueryEventObject extends Event {
     data: any;
     delegateTarget: Element;
     isDefaultPrevented(): boolean;
@@ -470,14 +441,14 @@ interface BaseJQueryEventObject extends Event {
     metaKey: boolean;
 }
 
-interface JQueryInputEventObject extends BaseJQueryEventObject {
+export interface JQueryInputEventObject extends BaseJQueryEventObject {
     altKey: boolean;
     ctrlKey: boolean;
     metaKey: boolean;
     shiftKey: boolean;
 }
 
-interface JQueryMouseEventObject extends JQueryInputEventObject {
+export interface JQueryMouseEventObject extends JQueryInputEventObject {
     button: number;
     clientX: number;
     clientY: number;
@@ -489,21 +460,21 @@ interface JQueryMouseEventObject extends JQueryInputEventObject {
     screenY: number;
 }
 
-interface JQueryKeyEventObject extends JQueryInputEventObject {
+export interface JQueryKeyEventObject extends JQueryInputEventObject {
     char: any;
     charCode: number;
     key: any;
     keyCode: number;
 }
 
-interface JQueryEventObject extends BaseJQueryEventObject, JQueryInputEventObject, JQueryMouseEventObject, JQueryKeyEventObject{
+export interface JQueryEventObject extends BaseJQueryEventObject, JQueryInputEventObject, JQueryMouseEventObject, JQueryKeyEventObject{
 }
 
 /*
  Collection of properties of the current browser
  */
 
-interface JQuerySupport {
+export interface JQuerySupport {
     ajax?: boolean;
     boxModel?: boolean;
     changeBubbles?: boolean;
@@ -525,7 +496,7 @@ interface JQuerySupport {
     tbody?: boolean;
 }
 
-interface JQueryParam {
+export interface JQueryParam {
     /**
      * Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
      *
@@ -548,7 +519,7 @@ interface JQueryParam {
  * overriding the construction function with specific strings
  * returning specific event objects.
  */
-interface JQueryEventConstructor {
+export interface JQueryEventConstructor {
     (name: string, eventProperties?: any): JQueryEventObject;
     new (name: string, eventProperties?: any): JQueryEventObject;
 }
@@ -556,7 +527,7 @@ interface JQueryEventConstructor {
 /**
  * The interface used to specify coordinates.
  */
-interface JQueryCoordinates {
+export interface JQueryCoordinates {
     left: number;
     top: number;
 }
@@ -564,12 +535,12 @@ interface JQueryCoordinates {
 /**
  * Elements in the array returned by serializeArray()
  */
-interface JQuerySerializeArrayElement {
+export interface JQuerySerializeArrayElement {
     name: string;
     value: string;
 }
 
-interface JQueryAnimationOptions {
+export interface JQueryAnimationOptions {
     /**
      * A string or number determining how long the animation will run.
      */
@@ -616,11 +587,11 @@ interface JQueryAnimationOptions {
     specialEasing?: Object;
 }
 
-interface JQueryEasingFunction {
+export interface JQueryEasingFunction {
     ( percent: number ): number;
 }
 
-interface JQueryEasingFunctions {
+export interface JQueryEasingFunctions {
     [ name: string ]: JQueryEasingFunction;
     linear: JQueryEasingFunction;
     swing: JQueryEasingFunction;
@@ -629,7 +600,7 @@ interface JQueryEasingFunctions {
 /**
  * Static members of jQuery (those on $ and jQuery themselves)
  */
-interface JQueryStatic {
+export interface JQueryStatic {
 
     /**
      * Perform an asynchronous HTTP (Ajax) request.
@@ -1173,7 +1144,7 @@ interface JQueryStatic {
 /**
  * The jQuery instance members
  */
-interface JQuery {
+export interface JQuery {
     /**
      * Register a handler to be called when Ajax requests complete. This is an AjaxEvent.
      *
@@ -2600,7 +2571,7 @@ interface JQuery {
      * @param name The name of a jQuery method that generated the array of elements.
      * @param arguments The arguments that were passed in to the jQuery method (for serialization).
      */
-    pushStack(elements: any[], name: string, arguments: any[]): JQuery;
+    pushStack(elements: any[], name: string, args: any[]): JQuery;
 
     /**
      * Insert content, specified by the parameter, after each element in the set of matched elements.
@@ -3205,8 +3176,5 @@ interface JQuery {
      */
     queue(queueName: string, callback: Function): JQuery;
 }
-declare module "jquery" {
-    export = $;
-}
-declare var jQuery: JQueryStatic;
-declare var $: JQueryStatic;
+export declare var jQuery: JQueryStatic;
+export declare var $: JQueryStatic;

@@ -1,3 +1,4 @@
+import {JQuery} from './jquery';
 import {IScope} from "./angular";
 import {IPromise} from "./angular";
 

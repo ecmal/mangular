@@ -2,18 +2,11 @@
 // Project: http://angularjs.org
 // Definitions by: Diego Vilar <http://github.com/diegovilar>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
-import './jquery';
+import {JQuery} from './jquery';
+import {JQueryStatic} from './jquery';
 
 
-interface Element {}
-interface Window {}
-interface Node {}
-interface Text {}
-interface XMLDocument {}
-interface HTMLElement {}
-interface XMLHttpRequest {}
-interface Document {}
-interface Event {}
+
 interface Function {
     $inject?: string[];
 }
