@@ -1,0 +1,12 @@
+{
+  "name"          : "mangular",
+  "version"       : "0.0.1",
+  "registry"      : "github",
+  "vendor"        : "ecmal",
+  "libraries"     : {
+    "ecmal/core"        : "0.0.1",
+    "ecmal/node"        : "0.0.1",
+    "ecmal/runtime"     : "0.0.1",
+    "ecmal/browser"     : "0.0.1"
+  }
+}
