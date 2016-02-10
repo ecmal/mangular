@@ -14,7 +14,7 @@ class Main{
 
     public static  changeModuleWrappers(data){
         var firstReplacement = "System.register(['./angular'], function(exports_1) {var index_1;return {setters:[function (index_1_1) {index_1 = index_1_1;}],execute: function() {";
-        var secondReplacement ="exports_1('default',index_1.default);}}});";
+        var secondReplacement = "exports_1('default',index_1.default);}}});";
         data = data.replace(/[(]function[(][-\s]?window, angular, undefined[-\s]?[)][-\s]?[{]/,firstReplacement)
             .replace(/}[)][(]window, window.angular[)][\s\S]*.*/,secondReplacement);
         return data;

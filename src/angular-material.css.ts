@@ -1,9 +1,12 @@
+export default `
 /*!
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
  * v1.0.5
  */
+
+
 html, body {
   height: 100%;
   color: rgba(0, 0, 0, 0.87);
@@ -1358,18 +1361,7 @@ input {
   min-height: 100%;
   height: 100%; }
 
-/**
- * `hide-gt-sm show-gt-lg` should hide from 600px to 1200px
- * `show-md hide-gt-sm` should show from 0px to 960px and hide at >960px
- * `hide-gt-md show-gt-sm` should show everywhere (show overrides hide)`
- *
- *  hide means hide everywhere
- *  Sizes:
- *         $layout-breakpoint-xs:     600px !default;
- *         $layout-breakpoint-sm:     960px !default;
- *         $layout-breakpoint-md:     1280px !default;
- *         $layout-breakpoint-lg:     1920px !default;
- */
+
 @media (max-width: 599px) {
   .hide-xs:not(.show-xs):not(.show), .hide:not(.show-xs):not(.show) {
     display: none; }
@@ -14263,3 +14255,4 @@ md-tooltip {
 @media screen and (-ms-high-contrast: active) {
   md-whiteframe {
     border: 1px solid #fff; } }
+`;
