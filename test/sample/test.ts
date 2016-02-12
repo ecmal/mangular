@@ -5,6 +5,7 @@ import {Inject} from "mangular/injector";
 import "mangular/angular/animate";
 import "mangular/angular/aria";
 import "mangular/angular/material";
+//import "mangular/angular/table";
 
 import "./api/provider";
 import "./user/controller";
@@ -28,7 +29,7 @@ class MyApp {
             .defaultIconSet("assets/svg/avatars.svg"          , 128)
 
         this.$mdThemingProvider.theme('default')
-            .primaryPalette('brown')
+            .primaryPalette('blue')
             .accentPalette('red');
     }
 }

@@ -28,6 +28,7 @@ class ApiController {
     }
 })
 class mbApiComponent {
+
     constructor(){
         console.info('API COMPONENT')
     }

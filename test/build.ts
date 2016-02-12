@@ -106,7 +106,7 @@ class Main{
 
     public getFile(repo, version, file,destination){
         try{
-            var path = `/angular/${repo}/${version}/${file}`
+            var path = `/${repo}/${version}/${file}`
             console.info("FETCH",path)
             return new Promise((resolve, reject)=> {
                 let req = https.request({

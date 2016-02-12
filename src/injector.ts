@@ -56,6 +56,7 @@ class Decorators {
             };
         }
     }
+    //
     static inject(target?,key?,descriptor?,service?){
         var Class = target.constructor;
         if(!service){
@@ -106,13 +107,13 @@ class Decorators {
         });
     }
     static component(target?,key?,descriptor?,options?){
-        console.info(target,key,descriptor,options);
         var name = options.name || target.name;
         options.controller = this.proxy(target);
         var module:any = Reflect.getMetadata(target,key,'design:module');
         module = this.get(module.id);
         module.components[name] = options;
     }
+    //
     constructor(mangular,key){
         var module = Reflect.getMetadata(mangular,key,'design:module');
         var filename = module.url.split('/');
@@ -150,6 +151,7 @@ export class Mangular {
                 case 'mangular/angular/animate'     : return deps.push('ngAnimate');
                 case 'mangular/angular/aria'        : return deps.push('ngAria');
                 case 'mangular/angular/material'    : return deps.push('ngMaterial');
+                case 'mangular/angular/table'       : return deps.push('md.data.table');
             }
             var dep = Decorators.cache[d];
             if(dep) {
@@ -163,7 +165,6 @@ export class Mangular {
                     app.controller(c, dep.controllers[c]);
                 }
                 for (let c in dep.components) {
-                    console.info(c,dep.components[c])
                     app.component(c, dep.components[c]);
                 }
             }
@@ -171,7 +172,9 @@ export class Mangular {
         delete Decorators['cache'];
         if(cache.deps.indexOf('ngMaterial')){
             this.loadCss(this.module.dirname+'/angular/material.css');
-            this.loadCss(this.module.dirname+'/angular/material.css');
+        }
+        if(cache.deps.indexOf('ngMaterial')){
+            this.loadCss(this.module.dirname+'/angular/table.css');
         }
 
         angular.element(document).ready(()=>{
