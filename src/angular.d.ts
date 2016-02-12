@@ -661,15 +661,15 @@ export interface IAnimateCallbackObject {
  * see https://docs.angularjs.org/api/ng/service/$filter
  */
 export interface IFilterService {
-    (name: 'filter'): IFilterFilter;
-    (name: 'currency'): IFilterCurrency;
-    (name: 'number'): IFilterNumber;
-    (name: 'date'): IFilterDate;
-    (name: 'json'): IFilterJson;
-    (name: 'lowercase'): IFilterLowercase;
-    (name: 'uppercase'): IFilterUppercase;
-    (name: 'limitTo'): IFilterLimitTo;
-    (name: 'orderBy'): IFilterOrderBy;
+    (name: 'filter')    : IFilterFilter;
+    (name: 'currency')  : IFilterCurrency;
+    (name: 'number')    : IFilterNumber;
+    (name: 'date')      : IFilterDate;
+    (name: 'json')      : IFilterJson;
+    (name: 'lowercase') : IFilterLowercase;
+    (name: 'uppercase') : IFilterUppercase;
+    (name: 'limitTo')   : IFilterLimitTo;
+    (name: 'orderBy')   : IFilterOrderBy;
     /**
      * Usage:
      * $filter(name);
