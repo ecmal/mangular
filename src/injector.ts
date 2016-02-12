@@ -1,11 +1,45 @@
-import angular from "./angular";
-
-export const CONTROLLERS = {};
-export const SERVICES = {};
-export const PROVIDERS = {};
-export const MODULES = {};
+import angular from "./angular/angular";
 
 class Decorators {
+    static cache = {};
+    static get(id):any {
+        var m = this.cache[id];
+        if(!m){
+            m = this.cache[id] = {
+                config      :null,
+                deps        :[],
+                providers   :{},
+                services    :{},
+                controllers :{},
+                components  :{}
+            };
+        }
+        return m;
+    }
+    static proxy(target:any,override?){
+        var injectKeys   = [];
+        var injectValues = [];
+        if(target.$inject) {
+            Object.keys(target.$inject).forEach(key=> {
+                injectKeys.push(key);
+                injectValues.push(target.$inject[key]);
+            });
+        }
+        var proxy:any = (...params)=>{
+            var instance = Object.create(target.prototype);
+            injectKeys.forEach((key,index)=>{
+                instance[key] = params[index];
+            });
+            target.apply(instance);
+            if(typeof override=='function'){
+                instance = override(instance)||instance;
+            }
+            return instance;
+        };
+        proxy.$inject = injectValues;
+
+        return proxy;
+    }
     static decorate(decorator,...rest){
         var [target,key,desc] = rest;
         var targetType = typeof target;
@@ -46,115 +80,45 @@ class Decorators {
     }
     static module(target?,key?){
         var module:any = Reflect.getMetadata(target,key,'design:module');
-        module.deps = module.deps.filter((e,i,a)=>a.indexOf(e)==i);
-        var injectKeys   = [];
-        var injectValues = [];
-        if(target.$inject) {
-            Object.keys(target.$inject).forEach(key=> {
-                injectKeys.push(key);
-                injectValues.push(target.$inject[key]);
-            });
-        }
-        var modules = MODULES[module.id];
-        if(!modules) {
-            modules = MODULES[module.id] = {};
-        }
-        modules.deps = module.deps;
-        modules.config = [...injectValues,(...params)=>{
-            var instance = Object.create(target.prototype);
-            injectKeys.forEach((key,index)=>{
-                instance[key] = params[index];
-            });
-            target.apply(instance);
-            return instance;
-        }];
+        var deps = module.deps.filter((e,i,a)=>a.indexOf(e)==i);
+        module = this.get(module.id);
+        module.deps = deps;
+        module.config = this.proxy(target);
     }
     static controller(target?,key?){
         var module:any = Reflect.getMetadata(target,key,'design:module');
-        var injectKeys = [];
-        var injectValues = [];
-        Object.keys(target.$inject).forEach(key=>{
-            injectKeys.push(key);
-            injectValues.push(target.$inject[key]);
-        });
-        var controllers = CONTROLLERS[module.id];
-        if(!controllers) {
-            controllers = CONTROLLERS[module.id] = {};
-        }
-        controllers[target.name] =[...injectValues,(...params)=>{
-            var instance = Object.create(target.prototype);
-            injectKeys.forEach((key,index)=>{
-                instance[key] = params[index];
-            });
-            target.apply(instance);
-            return instance;
-        }];
+        module = this.get(module.id);
+        module.controllers[target.name] = this.proxy(target)
     }
     static service(target?,key?){
         var module:any = Reflect.getMetadata(target,key,'design:module');
-        var injectKeys = [];
-        var injectValues = [];
-        Object.keys(target.$inject).forEach(key=>{
-            injectKeys.push(key);
-            injectValues.push(target.$inject[key]);
-        });
-        var services = SERVICES[module.id];
-        if(!services) {
-            services = SERVICES[module.id] = {};
-        }
-        services[target.name] =[...injectValues,(...params)=>{
-            var instance = Object.create(target.prototype);
-            injectKeys.forEach((key,index)=>{
-                instance[key] = params[index];
-            });
-            target.apply(instance);
-            return instance;
-        }];
+        module = this.get(module.id);
+        module.services[target.name] = this.proxy(target);
     }
     static provider(target?,key?){
         var module:any = Reflect.getMetadata(target,key,'design:module');
         var name:string = target.name.replace(/(.*)Provider$/,'$1');
-        var injectKeys = [];
-        var injectValues = [];
-        if(target.$inject) {
-            Object.keys(target.$inject).forEach(key=> {
-                injectKeys.push(key);
-                injectValues.push(target.$inject[key]);
-            });
-        }
-        var providers = PROVIDERS[module.id];
-        if(!providers) {
-            providers = PROVIDERS[module.id] = {};
-        }
-        providers[name] = [...injectValues,(...params)=>{
-            var instance = Object.create(target.prototype);
-            injectKeys.forEach((key,index)=>{
-                instance[key] = params[index];
-            });
-            target.apply(instance);
+        module = this.get(module.id);
+        module.providers[name] = this.proxy(target,(instance)=>{
             Object.defineProperty(instance,'$get', <PropertyDescriptor>{
-                get(){
-                    var target = this.service;
-                    var injectKeys = [];
-                    var injectValues = [];
-                    if(target.$inject) {
-                        Object.keys(target.$inject).forEach(key=> {
-                            injectKeys.push(key);
-                            injectValues.push(target.$inject[key]);
-                        });
-                    }
-                    return [...injectValues,(...params)=>{
-                        var instance = Object.create(target.prototype);
-                        injectKeys.forEach((key,index)=>{
-                            instance[key] = params[index];
-                        });
-                        target.apply(instance);
-                        return target;
-                    }];
-                }
+                get(){ return Decorators.proxy(this.service); }
             });
-            return instance;
-        }];
+        });
+    }
+    static component(target?,key?,descriptor?,options?){
+        console.info(target,key,descriptor,options);
+        var name = options.name || target.name;
+        options.controller = this.proxy(target);
+        var module:any = Reflect.getMetadata(target,key,'design:module');
+        module = this.get(module.id);
+        module.components[name] = options;
+    }
+    constructor(mangular,key){
+        var module = Reflect.getMetadata(mangular,key,'design:module');
+        var filename = module.url.split('/');
+        filename.pop();
+        module.dirname = filename.join('/');
+        mangular.module = module;
     }
 }
 
@@ -163,41 +127,57 @@ export const Module     = (...args:any[]):any => Decorators.decorate('module',..
 export const Controller = (...args:any[]):any => Decorators.decorate('controller',...args);
 export const Service    = (...args:any[]):any => Decorators.decorate('service',...args);
 export const Provider   = (...args:any[]):any => Decorators.decorate('provider',...args);
+export const Component  = (...args:any[]):any => Decorators.decorate('component',...args);
 
-export class Bootstrap {
+@Decorators
+export class Mangular {
+    static module:any;
+    static element(el){
+        return angular.element(el)
+    }
+    static loadCss(url){
+        var link = document.createElement('link');
+        link.href = url;
+        link.rel = "stylesheet";
+        document.head.appendChild(link)
+    }
     static init(mod){
-        var module = MODULES[mod];
-        if(module){
-            var deps = ['ng'];//'ngAnimate','ngAria','ngMaterial'
-            var app:any = angular.module(mod,deps).config(module.config);
-            module.deps.forEach(d=>{
-                switch(d){
-                    case 'mangular/angular-animate'     : return deps.push('ngAnimate');
-                    case 'mangular/angular-aria'        : return deps.push('ngAria');
-                    case 'mangular/angular-material'    : return deps.push('ngMaterial');
+        var deps = ['ng'];
+        var cache = Decorators.cache[mod];
+        var app:any = angular.module(mod,deps).config(cache.config);
+        cache.deps.forEach(d=>{
+            switch(d){
+                case 'mangular/angular/animate'     : return deps.push('ngAnimate');
+                case 'mangular/angular/aria'        : return deps.push('ngAria');
+                case 'mangular/angular/material'    : return deps.push('ngMaterial');
+            }
+            var dep = Decorators.cache[d];
+            if(dep) {
+                for (let c in dep.providers) {
+                    app.provider(c, dep.providers[c]);
                 }
-                if(CONTROLLERS[d]){
-                    for(let c in CONTROLLERS[d]){
-                        app.controller(c,CONTROLLERS[d][c]);
-                    }
+                for (let c in dep.services) {
+                    app.service(c, dep.services[c]);
                 }
-                if(SERVICES[d]){
-                    for(let c in SERVICES[d]){
-                        app.service(c,SERVICES[d][c]);
-                    }
+                for (let c in dep.controllers) {
+                    app.controller(c, dep.controllers[c]);
                 }
-                if(PROVIDERS[d]){
-                    for(let c in PROVIDERS[d]){
-                        app.provider(c,PROVIDERS[d][c]);
-                    }
+                for (let c in dep.components) {
+                    console.info(c,dep.components[c])
+                    app.component(c, dep.components[c]);
                 }
-            });
-            angular.element(document).ready(()=>{
-                angular.bootstrap(document, [mod]);
-            })
+            }
+        });
+        delete Decorators['cache'];
+        if(cache.deps.indexOf('ngMaterial')){
+            this.loadCss(this.module.dirname+'/angular/material.css');
+            this.loadCss(this.module.dirname+'/angular/material.css');
         }
 
+        angular.element(document).ready(()=>{
+            angular.bootstrap(document, [mod]);
+        });
     }
 }
 
-export default Bootstrap;
+export default Mangular;

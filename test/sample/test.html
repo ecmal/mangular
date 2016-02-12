@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="#">
     <title>Title</title>
+    <meta name="viewport" content="initial-scale=1">
     <script src="../../out/runtime/package.js" main></script>
-    <link rel="stylesheet" href="assets/material.css"/>
-    <link rel="stylesheet" href="assets/app.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/app.css">
 </head>
 <body  layout="row" ng-controller="UserController as ul" ng-cloak >
 
@@ -35,7 +38,7 @@
 
     <md-toolbar layout="row" class="md-whiteframe-z1">
         <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
-            <md-icon md-svg-icon="menu" ></md-icon>
+            <md-icon>menu</md-icon>
         </md-button>
         <h3>Angular Material - Starter App</h3>
     </md-toolbar>
@@ -47,7 +50,7 @@
 
         <md-button class="contact" md-no-ink ng-click="ul.makeContact(ul.selected)" aria-label="Share with {{ ul.selected.name }}">
             <md-tooltip>Contact {{ ul.selected.name }}</md-tooltip>
-            <md-icon md-svg-icon="share"></md-icon>
+            <md-icon>share</md-icon>
         </md-button>
     </md-content>
 

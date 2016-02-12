@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:mb="http://mamble.co/#mangular">
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="#">
@@ -7,6 +7,12 @@
     <script src="../../out/runtime/package.js" main></script>
 </head>
 <body ng-controller="ApiController as api">
+API NAME : {{api.name}}
+<input ng-model="api.name">
+<button ng-click="api.sayHello()"></button>
+<mb:ApiComponent hero="api.name">
+
+</mb:ApiComponent>
 <script>
     System.import('mangular/simple/test').catch(function(e){
         console.error(e);

@@ -2,6 +2,28 @@ import * as Fs from 'node/fs';
 import * as Path from 'node/path';
 import * as https from "node/https";
 
+var TEMPLATES = [`
+System.register(['./angular'], function(exports) {var angularModule,angular;return {
+setters:[
+function (mod) {
+    angularModule = mod;
+    angular = mod.default;
+}],
+execute: function() {
+
+"ANGULAR.SOURCE";
+
+exports('default',angular);
+
+}}});`,`
+System.register([], function(exports) { return { setters:[], execute: function() {
+
+
+"ANGULAR.SOURCE";
+
+exports('default',angular);
+
+}}});`];
 class Main{
     private angularVersion:string;
     private gitBaseUrl:string = '' ;
@@ -13,16 +35,17 @@ class Main{
     }
 
     public static  changeModuleWrappers(data){
-        var firstReplacement = "System.register(['./angular'], function(exports_1) {var index_1;return {setters:[function (index_1_1) {index_1 = index_1_1;}],execute: function() {";
-        var secondReplacement = "exports_1('default',index_1.default);}}});";
+        var [firstReplacement,secondReplacement] = TEMPLATES[0].split('"ANGULAR.SOURCE";');
         data = data.replace(/[(]function[(][-\s]?window, angular, undefined[-\s]?[)][-\s]?[{]/,firstReplacement)
             .replace(/}[)][(]window, window.angular[)][\s\S]*.*/,secondReplacement);
         return data;
     }
 
+    public static changeCssWrappers(data){
+        return `export default \`${data}\`;`
+    }
     public static changeAngularWrappers(data){
-        var firstReplacement = "System.register([], function(exports_1) { return { setters:[], execute: function() {"
-        var secondReplacement ='exports_1("angular", angular);exports_1("default",angular);}}});';
+        var [firstReplacement,secondReplacement] = TEMPLATES[1].split('"ANGULAR.SOURCE";');
         data = data.replace(/[(]function[(]window, document, undefined[)] [{]'use strict';/,firstReplacement)
             .replace(/}[)][(]window, document[)];[\s\S]*.*/,secondReplacement);
         return data;
@@ -35,33 +58,60 @@ class Main{
 
     public getFiles(){
         Object.keys(this.config).forEach( ( repo ) => {
-            console.log(this.config[repo].files);
-            this.config[repo].files.map((fileName)=>{
-                this.getFile(repo,this.config[repo].version,fileName).then((options)=>{
+            Object.keys(this.config[repo].files).map((fileName)=>{
+                var destination = this.config[repo].files[fileName];
+                this.getFile(repo,this.config[repo].version,fileName,destination).then((options)=>{
                     this.changeWrappers(options);
+                }).catch(e=>{
+                    console.info(e)
                 });
             });
         });
     }
-
+    static createDir(path,recursive=false){
+        if(recursive){
+            var parts = Path.normalize(path).split(Path.sep);
+            path = '';
+            for (var i = 0; i < parts.length; i++) {
+                path += parts[i] + Path.sep;
+                if (!Fs.existsSync(path)) {
+                    Fs.mkdirSync(path, 0x1FD);
+                }
+            }
+        }else {
+            Fs.mkdirSync(path);
+        }
+    }
     public writeToSrcDir(fileName,data){
         let path  = Path.resolve(Path.resolve(__dirname,'../../src'),fileName);
+        let dir = Path.dirname(path)
+        if(!Fs.existsSync(dir)){
+            Main.createDir(dir);
+        }
         Fs.writeFileSync(path,data);
         console.log(`${fileName} has been successfully added to src directory`)
     }
 
     public changeWrappers(options){
-        let fileName = options.fileName;
-        let data     = options.data
-        this.writeToSrcDir(fileName,(fileName!='angular.js') ? Main.changeModuleWrappers(data):Main.changeAngularWrappers(data))
+        let file = options.file;
+        let data = options.data;
+        let dest = options.destination;
+        if(file=='angular.js'){
+            data = Main.changeAngularWrappers(data)
+        }else{
+            data = Main.changeModuleWrappers(data)
+        }
+        this.writeToSrcDir(dest,data);
     }
 
-    public getFile(repo, version, fileName ){
+    public getFile(repo, version, file,destination){
         try{
+            var path = `/angular/${repo}/${version}/${file}`
+            console.info("FETCH",path)
             return new Promise((resolve, reject)=> {
                 let req = https.request({
                     host: 'raw.githubusercontent.com',
-                    path: `/angular/${repo}/${version}/${fileName}`,
+                    path: path,
                     method: 'GET',
                 }, (res) => {
                     var data = '';
@@ -69,12 +119,13 @@ class Main{
                         data += chunk;
                     });
                     res.on('end', () => {
-                        resolve({"fileName":fileName,'data':data});
+                        resolve({file,data,destination});
                     });
                     res.on('error', () => {
                         reject(false)
                     });
                 });
+                req.on('error',e=>reject(false));
                 req.end()
             })
         }catch(e){

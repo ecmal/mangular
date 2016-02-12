@@ -1,22 +1,33 @@
 {
   "bower-angular"         : {
-          "version"       : "v1.5.0",
-          "files"         : ["angular.js"]
+      "version"           : "v1.5.0",
+      "files"             : {
+        "angular.js"      : "angular/angular.js"
+      }
   },
   "bower-material"        : {
-          "version"       : "v1.0.5",
-          "files"         : ["angular-material.js","angular-material.css"]
+      "version"           : "v1.0.5",
+      "files"             : {
+        "angular-material.js"   : "angular/material.js",
+        "angular-material.css"  : "angular/material.css"
+      }
   },
   "bower-angular-aria"    : {
-          "version"       : "v1.5.0",
-          "files"         : ["angular-aria.js"]
+      "version"           : "v1.5.0",
+      "files"             : {
+        "angular-aria.js" : "angular/aria.js"
+      }
   },
   "bower-angular-animate" : {
-          "version"       : "v1.5.0",
-          "files"         : ["angular-animate.js"]
+      "version"           : "v1.5.0",
+      "files"             : {
+        "angular-animate.js" : "angular/animate.js"
+      }
   },
-  "bower-angular-route"   : {
-          "version"       : "v1.5.0",
-          "files"         : ["angular-route.js"]
+  "bower-angular-route"    : {
+      "version"            : "v1.5.0",
+      "files"              : {
+        "angular-route.js" : "angular/route.js"
+      }
   }
 }

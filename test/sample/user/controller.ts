@@ -16,8 +16,6 @@ class UserController {
     private selected:any;
 
     constructor(){
-        console.info('UserController');
-
         this.selected     = null;
         this.users        = [ ];
         this.service.loadAllUsers().then((users)=>{
@@ -43,7 +41,7 @@ class UserController {
                     <md-list>
                       <md-item ng-repeat="item in cp.actions">
                         <md-button ng-click="cp.contactUser(item)" id="item_{{$index}}">
-                            <md-icon md-svg-icon="{{ item.icon_url }}"></md-icon>
+                            <md-icon>{{ item.icon }}</md-icon>
                             {{item.name}}
                         </md-button>
                       </md-item>
@@ -52,9 +50,7 @@ class UserController {
             `,
             controller    : [ '$mdBottomSheet', ContactSheetController],
             parent        : document.getElementById('content')
-        }).then(function(clickedItem) {
-            this.log.debug( clickedItem.name + ' clicked!');
-        });
+        }).then(clickedItem=>this.$log.debug( clickedItem.name + ' clicked!'));
 
         /**
          * User ContactSheet controller
@@ -62,15 +58,14 @@ class UserController {
         function ContactSheetController( $mdBottomSheet ) {
             this.user = selectedUser;
             this.actions = [
-                { name: 'Phone'       , icon: 'phone'       , icon_url: '../assets/svg/phone.svg'},
-                { name: 'Twitter'     , icon: 'twitter'     , icon_url: '../assets/svg/twitter.svg'},
-                { name: 'Google+'     , icon: 'google_plus' , icon_url: '../assets/svg/google_plus.svg'},
-                { name: 'Hangout'     , icon: 'hangouts'    , icon_url: '../assets/svg/hangouts.svg'}
+                { name: 'Phone'       , icon: 'phone'       , },
+                { name: 'Twitter'     , icon: 'done'     , },
+                { name: 'Google+'     , icon: 'email'  },
+                { name: 'Hangout'     , icon: 'explore'    , }
             ];
             this.contactUser = function(action) {
                 // The actually contact process has not been implemented...
                 // so just hide the bottomSheet
-
                 $mdBottomSheet.hide(action);
             };
         }
