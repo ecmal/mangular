@@ -30,8 +30,8 @@ class Main{
 
     public static  changeModuleWrappers(data){
         var [firstReplacement,secondReplacement] = TEMPLATES[0].split('"ANGULAR.SOURCE";');
-        data = data.replace(/[(]function[(][-\s]?window, angular, undefined[-\s]?[)][-\s]?[{]/,firstReplacement)
-            .replace(/}[)][(]window, window.angular[)][\s\S]*.*/,secondReplacement);
+        data = data.replace(/[(]function[-\s]?[(][-\s]?window, angular, undefined[-\s]?[)][-\s]?[{]/,firstReplacement)
+            .replace(/}[)][(]window, window\.angular[)]|}[)][(]window, angular[)][\s\S]*.*/,secondReplacement);
         return data;
     }
 

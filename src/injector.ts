@@ -198,6 +198,7 @@ export class Mangular {
                 case 'mangular/angular/animate'     : return deps.push('ngAnimate');
                 case 'mangular/angular/aria'        : return deps.push('ngAria');
                 case 'mangular/angular/material'    : return deps.push('ngMaterial');
+                case 'mangular/angular/route'       : return deps.push('ngRoute');
                 case 'mangular/angular/table'       : return deps.push('md.data.table');
             }
             var dep = Decorators.cache[d];
