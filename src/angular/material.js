@@ -5,13 +5,7 @@
  * v1.0.5
  */
 
-System.register(['./angular','./animate','./aria'], function(exports) {var angularModule,angular;return {
-setters:[
-function (mod) {
-    angularModule = mod;
-    angular = mod.default;
-},function (mod) {},function (mod) {}],
-execute: function() {
+System.register(['./angular','./animate','./aria'], function(exports) {return { setters:[function(){},function(){},function(){}], execute: function() {
 
 
 "use strict";

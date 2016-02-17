@@ -4,13 +4,7 @@
  * License: MIT
  */
 
-System.register(['./angular'], function(exports) {var angularModule,angular;return {
-setters:[
-function (mod) {
-    angularModule = mod;
-    angular = mod.default;
-}],
-execute: function() {
+System.register(['./angular'], function(exports) {return { setters:[function(){}], execute: function() {
 
 'use strict';
 

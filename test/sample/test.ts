@@ -26,7 +26,7 @@ class MyApp {
         console.info(this.$mdThemingProvider);
         console.info(this.$mdIconProvider);
         this.$mdIconProvider
-            .defaultIconSet("assets/svg/avatars.svg"          , 128)
+            .defaultIconSet("assets/svg/avatars.svg", 128)
 
         this.$mdThemingProvider.theme('default')
             .primaryPalette('blue')

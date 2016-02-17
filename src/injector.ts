@@ -1,5 +1,9 @@
 import angular from "./angular/angular";
 
+import Definition = Reflect.Definition;
+import Class = Reflect.Class;
+import Module = Reflect.Module;
+
 class Decorators {
     static cache = {};
     static get(id):any {
@@ -60,7 +64,8 @@ class Decorators {
     static inject(target?,key?,descriptor?,service?){
         var Class = target.constructor;
         if(!service){
-            var Type = Reflect.getDesignType(target,key);
+            var def:any = Definition.for(target,key);
+            var Type = def.type;
             service = Type==Object?key:Type.name
         }
         if(Class){
@@ -80,55 +85,97 @@ class Decorators {
         }
     }
     static module(target?,key?){
-        var module:any = Reflect.getMetadata(target,key,'design:module');
-        var deps = module.deps.filter((e,i,a)=>a.indexOf(e)==i);
-        module = this.get(module.id);
-        module.deps = deps;
-        module.config = this.proxy(target);
+        var def:any = Definition.for(target,key);
+        if(def instanceof Class){
+            var mod:Module = def.owner;
+            var deps = mod.dependencies.filter((e,i,a)=>a.indexOf(e)==i);
+            var module = this.get(mod.name);
+            module.deps = deps;
+            module.config = this.proxy(target);
+        }else{
+            console.error("Wrong Target")
+        }
     }
     static controller(target?,key?){
-        var module:any = Reflect.getMetadata(target,key,'design:module');
-        module = this.get(module.id);
-        module.controllers[target.name] = this.proxy(target)
+        var def:any = Definition.for(target,key);
+        if(def instanceof Class){
+            var mod:any = def.owner;
+            var module = this.get(mod.name);
+            module.controllers[target.name] = this.proxy(target)
+        }else{
+            console.error("Wrong Target")
+        }
     }
     static service(target?,key?){
-        var module:any = Reflect.getMetadata(target,key,'design:module');
-        module = this.get(module.id);
-        module.services[target.name] = this.proxy(target);
+        var def:any = Definition.for(target,key);
+        if(def instanceof Class){
+            var mod:any = def.owner;
+            var module = this.get(mod.name);
+            module.services[target.name] = this.proxy(target);
+        }else{
+            console.error("Wrong Target")
+        }
     }
     static provider(target?,key?){
-        var module:any = Reflect.getMetadata(target,key,'design:module');
-        var name:string = target.name.replace(/(.*)Provider$/,'$1');
-        module = this.get(module.id);
-        module.providers[name] = this.proxy(target,(instance)=>{
-            Object.defineProperty(instance,'$get', <PropertyDescriptor>{
-                get(){ return Decorators.proxy(this.service); }
+        var def:any = Definition.for(target,key);
+        if(def instanceof Class){
+            var mod:Module = def.owner;
+            var name:string = target.name.replace(/(.*)Provider$/,'$1');
+            var module = this.get(mod.name);
+            module.providers[name] = this.proxy(target,(instance)=>{
+                Object.defineProperty(instance,'$get', <PropertyDescriptor>{
+                    get(){ return Decorators.proxy(this.service); }
+                });
             });
-        });
+        }else{
+            console.error("Wrong Target")
+        }
+
     }
     static component(target?,key?,descriptor?,options?){
         var name = options.name || target.name;
         options.controller = this.proxy(target);
-        var module:any = Reflect.getMetadata(target,key,'design:module');
-        module = this.get(module.id);
-        module.components[name] = options;
+        var def:any = Definition.for(target,key);
+        if(def instanceof Class){
+            var mod:Module = def.owner;
+            var module = this.get(mod.name);
+            module.components[name] = options;
+        }else{
+            console.error("Wrong Target")
+        }
     }
     //
     constructor(mangular,key){
-        var module = Reflect.getMetadata(mangular,key,'design:module');
-        var filename = module.url.split('/');
-        filename.pop();
-        module.dirname = filename.join('/');
-        mangular.module = module;
+        var def:any = Definition.for(mangular,key);
+        if(def instanceof Class){
+            var module = def.owner;
+            var filename = module.url.split('/');
+            filename.pop();
+            module.dirname = filename.join('/');
+            mangular.module = module;
+        }
     }
 }
 
-export const Inject     = (...args:any[]):any => Decorators.decorate('inject',...args);
-export const Module     = (...args:any[]):any => Decorators.decorate('module',...args);
-export const Controller = (...args:any[]):any => Decorators.decorate('controller',...args);
-export const Service    = (...args:any[]):any => Decorators.decorate('service',...args);
-export const Provider   = (...args:any[]):any => Decorators.decorate('provider',...args);
-export const Component  = (...args:any[]):any => Decorators.decorate('component',...args);
+export function Inject(...args):any{
+    return Decorators.decorate('inject',...args)
+}
+export function Module(...args):any{
+    return Decorators.decorate('module',...args)
+}
+export function Controller(...args):any{
+    return Decorators.decorate('controller',...args)
+}
+export function Service(...args):any{
+    return Decorators.decorate('service',...args)
+}
+export function Provider(...args):any{
+    return Decorators.decorate('provider',...args)
+}
+export function Component(...args):any{
+    return Decorators.decorate('component',...args)
+}
+
 
 @Decorators
 export class Mangular {

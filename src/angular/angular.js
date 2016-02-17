@@ -2421,7 +2421,7 @@ function toDebugString(obj) {
  *
  * This object has the following properties:
  *
- * - `full` – `{string}` ��� Full version string, such as "0.9.18".
+ * - `full` – `{string}` – Full version string, such as "0.9.18".
  * - `major` – `{number}` – Major version number, such as "0".
  * - `minor` – `{number}` – Minor version number, such as "9".
  * - `dot` – `{number}` – Dot version number, such as "18".
@@ -10778,7 +10778,7 @@ function $HttpProvider() {
      *    - **headers** – `{Object}` – Map of strings or functions which return strings representing
      *      HTTP headers to send to the server. If the return value of a function is null, the
      *      header will not be sent. Functions accept a config object as an argument.
-     *    - **xsrfHeaderName** – `{string}` – Name of HTTP header to populate with the XSRF token.
+     *    - **xsrfHeaderName** ��� `{string}` – Name of HTTP header to populate with the XSRF token.
      *    - **xsrfCookieName** – `{string}` – Name of cookie containing the XSRF token.
      *    - **transformRequest** –
      *      `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –

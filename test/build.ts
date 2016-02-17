@@ -3,13 +3,7 @@ import * as Path from 'node/path';
 import * as https from "node/https";
 
 var TEMPLATES = [`
-System.register(['./angular'], function(exports) {var angularModule,angular;return {
-setters:[
-function (mod) {
-    angularModule = mod;
-    angular = mod.default;
-}],
-execute: function() {
+System.register(['./angular'], function(exports) {return { setters:[], execute: function() {
 
 "ANGULAR.SOURCE";
 

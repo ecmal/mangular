@@ -1,12 +1,7 @@
-System.register(['./angular'], function(exports) {var angularModule,angular;return {
-  setters:[
-    function (mod) {
-      angularModule = mod;
-      angular = mod.default;
-    }],
-  execute: function() {
+System.register(['./angular'], function(exports) {return { setters:[function(){}], execute: function() {
 
-    'use strict';
+  'use strict';
+
 angular.module('md.table.templates', ['md-table-pagination.html', 'md-table-progress.html', 'arrow-up.svg', 'navigate-before.svg', 'navigate-first.svg', 'navigate-last.svg', 'navigate-next.svg']);
 
 angular.module('md-table-pagination.html', []).run(['$templateCache', function($templateCache) {

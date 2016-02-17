@@ -23,10 +23,10 @@ class UserController {
             this.selected = users[0];
         });
     }
-    toggleList() {
+    toggleList(){
         this.$mdSidenav('left').toggle();
     }
-    selectUser ( user ) {
+    selectUser( user ) {
         this.selected = typeof user == 'number' ? this.users[user] : user;
     }
     makeContact(selectedUser) {
