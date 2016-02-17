@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "paginator.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "paginator.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;YACA,oBAAe,2MAEd,EAAC",
+  "sourcesContent": [
+    "\nexport default `\n<data-md-table-pagination md-limit=\"$ctrl.query.limit\" md-page=\"$ctrl.query.page\" md-total=\"{{$ctrl.desserts.length}}\" md-on-paginate=\"onPaginate\" md-page-select></data-md-table-pagination>\n`;"
+  ]
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
+    <title>Title</title>
+    <script src="../../out/runtime/package.js" main></script>
+
+</head>
+<body ng-controller="ApiController as api">
+API NAME : {{api.name}}
+<input ng-model="api.name">
+<button ng-click="api.sayHello()"></button>
+<mb-ApiComponent hero="api.name"/>
+<script>
+    System.import('mangular/simple/test').catch(function(e){
+        console.error(e);
+    })
+</script>
+</body>
+</html>
