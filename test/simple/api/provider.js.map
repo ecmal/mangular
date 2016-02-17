@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "file": "provider.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "provider.ts"
+  ],
+  "names": [
+    "ApiServiceProvider",
+    "ApiServiceProvider.constructor",
+    "ApiServiceProvider.setService"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;YAMA;gBAOIA;oBACIC,IAAIA,CAACA,OAAOA,GAAGA,oBAAUA,CAACA;gBAC9BA,CAACA;gBACDD,uCAAUA,GAAVA,UAAWA,IAAWA;oBAClBE,MAAMA,CAAAA,CAACA,IAAIA,CAACA,CAAAA,CAACA;wBACTA,KAAKA,KAAKA;4BAAGA,IAAIA,CAACA,OAAOA,GAAGA,uBAAaA,CAACA;4BAACA,KAAKA,CAACA;wBACjDA,KAAKA,KAAKA;4BAAGA,IAAIA,CAACA,OAAOA,GAAGA,uBAAaA,CAACA;4BAACA,KAAKA,CAACA;wBACjDA;4BAAaA,IAAIA,CAACA,OAAOA,GAAGA,oBAAUA,CAACA;4BAACA,KAAKA,CAACA;oBAClDA,CAACA;gBACLA,CAACA;gBAbDF;oBAACA,iBAAMA;;mBAASA,yCAASA,UAAKA;gBAHlCA;oBAACA,mBAAQA;;uCAiBRA;gBAADA,yBAACA;YAADA,CAACA,AAjBD,IAiBC",
+  "sourcesContent": [
+    "import {Provider} from \"mangular/injector\";\nimport {Inject} from \"mangular/injector\";\nimport {ApiService} from \"./service\";\nimport {ApiServiceOne} from \"./service\";\nimport {ApiServiceTwo} from \"./service\";\n\n@Provider\nclass ApiServiceProvider {\n\n    @Inject private $injector:any;\n\n    private service:any;\n\n    constructor(){\n        this.service = ApiService;\n    }\n    setService(name:string){\n        switch(name){\n            case 'one' : this.service = ApiServiceOne; break;\n            case 'two' : this.service = ApiServiceTwo; break;\n            default    : this.service = ApiService; break;\n        }\n    }\n}"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "test.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "test.ts"
+  ],
+  "names": [
+    "MyApp",
+    "MyApp.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;YAaA;gBAQIA;oBACIC,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,aAAaA,CAACA,CAACA;oBACjCA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,WAAWA,CAACA,CAACA;oBAC/BA,IAAIA,CAACA,WAAWA,CAACA,UAAUA,CAACA,KAAKA,CAACA,CAACA;oBACnCA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,kBAAkBA,CAACA,CAACA;oBACtCA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,eAAeA,CAACA,CAACA;oBACnCA,IAAIA,CAACA,eAAeA;yBACfA,cAAcA,CAACA,wBAAwBA,EAAEA,GAAGA,CAACA,CAAAA;oBAElDA,IAAIA,CAACA,kBAAkBA,CAACA,KAAKA,CAACA,SAASA,CAACA;yBACnCA,cAAcA,CAACA,MAAMA,CAACA;yBACtBA,aAAaA,CAACA,KAAKA,CAACA,CAACA;gBAC9BA,CAACA;gBAjBDD;oBAACA,iBAAMA,CAACA,qBAAqBA,CAACA;;mBAACA,gCAAaA,UAAKA;gBACjDA;oBAACA,iBAAMA,CAACA,oBAAoBA,CAACA;;mBAACA,8BAAWA,UAAKA;gBAC9CA;oBAACA,iBAAMA;;mBAACA,qCAAkBA,UAAKA;gBAC/BA;oBAACA,iBAAMA;;mBAACA,kCAAeA,UAAKA;gBANhCA;oBAACA,iBAAMA;;0BAqBNA;gBAADA,YAACA;YAADA,CAACA,AArBD,IAqBC;YAED,kBAAO,CAAC,IAAI,CAAC,sBAAsB,CAAC,CAAC",
+  "sourcesContent": [
+    "import Angular from \"mangular/injector\";\nimport {Module} from \"mangular/injector\";\nimport {Inject} from \"mangular/injector\";\n\nimport \"mangular/angular/animate\";\nimport \"mangular/angular/aria\";\nimport \"mangular/angular/material\";\n//import \"mangular/angular/table\";\n\nimport \"./api/provider\";\nimport \"./user/controller\";\nimport \"./user/service\";\n\n@Module\nclass MyApp {\n\n    @Inject('UserServiceProvider') usersProvider:any;\n    @Inject('ApiServiceProvider') apiProvider:any;\n    @Inject $mdThemingProvider:any;\n    @Inject $mdIconProvider:any;\n\n    constructor(){\n        console.info(this.usersProvider);\n        console.info(this.apiProvider);\n        this.apiProvider.setService('one');\n        console.info(this.$mdThemingProvider);\n        console.info(this.$mdIconProvider);\n        this.$mdIconProvider\n            .defaultIconSet(\"assets/svg/avatars.svg\", 128)\n\n        this.$mdThemingProvider.theme('default')\n            .primaryPalette('blue')\n            .accentPalette('red');\n    }\n}\n\nAngular.init('mangular/sample/test');\n\n"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "file": "provider.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "provider.ts"
+  ],
+  "names": [
+    "ApiServiceProvider",
+    "ApiServiceProvider.constructor",
+    "ApiServiceProvider.setService"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;YAKA;gBAGIA;oBACIC,IAAIA,CAACA,OAAOA,GAAGA,wBAAcA,CAACA;gBAClCA,CAACA;gBACDD,uCAAUA,GAAVA,UAAWA,IAAWA;oBAClBE,MAAMA,CAAAA,CAACA,IAAIA,CAACA,CAAAA,CAACA;wBACTA,KAAKA,KAAKA;4BAAGA,IAAIA,CAACA,OAAOA,GAAGA,uBAAaA,CAACA;4BAACA,KAAKA,CAACA;wBACjDA,KAAKA,KAAKA;4BAAGA,IAAIA,CAACA,OAAOA,GAAGA,uBAAaA,CAACA;4BAACA,KAAKA,CAACA;wBACjDA;4BAAaA,IAAIA,CAACA,OAAOA,GAAGA,wBAAcA,CAACA;4BAACA,KAAKA,CAACA;oBACtDA,CAACA;gBACLA,CAACA;gBAZLF;oBAACA,mBAAQA;;uCAaRA;gBAADA,yBAACA;YAADA,CAACA,AAbD,IAaC",
+  "sourcesContent": [
+    "import {Provider} from \"mangular/injector\";\nimport {ApiServiceBase} from \"./service\";\nimport {ApiServiceOne} from \"./service\";\nimport {ApiServiceTwo} from \"./service\";\n\n@Provider\nclass ApiServiceProvider {\n    private service:any;\n    constructor(){\n        this.service = ApiServiceBase;\n    }\n    setService(name:string){\n        switch(name){\n            case 'one' : this.service = ApiServiceOne; break;\n            case 'two' : this.service = ApiServiceTwo; break;\n            default    : this.service = ApiServiceBase; break;\n        }\n    }\n}"
+  ]
+}

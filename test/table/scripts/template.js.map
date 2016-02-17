@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "template.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "template.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;;;;;YAMA,oBAAe,OACb,qBAAU,UACV,yBAAc,UACd,iBAAO,UACP,mBAAS,OACV,EAAC",
+  "sourcesContent": [
+    "import MainHeader from \"./template/main-header\";\nimport SelectedHeader from \"./template/selected-header\";\nimport Content from \"./template/content\";\nimport Paginator from \"./template/paginator\";\n\n\nexport default `\n${MainHeader}\n${SelectedHeader}\n${Content}\n${Paginator}\n`;"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "index.ts"
+  ],
+  "names": [
+    "MyApp",
+    "MyApp.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;YASA;gBAKIA;oBACIC,IAAIA,CAACA,MAAMA,CAACA,KAAKA,CAACA,SAASA,CAACA;yBACvBA,cAAcA,CAACA,MAAMA,CAACA;yBACtBA,aAAaA,CAACA,MAAMA,CAACA,CAACA;gBAC/BA,CAACA;gBANDD;oBAACA,iBAAMA,CAACA,oBAAoBA,CAACA;;mBAACA,yBAAMA,UAAKA;gBAH7CA;oBAACA,iBAAMA;;0BAUNA;gBAADA,YAACA;YAADA,CAACA,AAVD,IAUC;YAED,kBAAO,CAAC,IAAI,CAAC,sBAAsB,CAAC,CAAC",
+  "sourcesContent": [
+    "import Angular from \"mangular/injector\";\nimport {Module} from \"mangular/injector\";\nimport {Inject} from \"mangular/injector\";\n\nimport \"mangular/angular/material\";\nimport \"mangular/angular/table\";\n\nimport \"./scripts/controller\";\n\n@Module\nclass MyApp {\n\n    @Inject('$mdThemingProvider') themes:any;\n\n    constructor(){\n        this.themes.theme('default')\n            .primaryPalette('blue')\n            .accentPalette('pink');\n    }\n}\n\nAngular.init('mangular/table/index');\n\n"
+  ]
+}

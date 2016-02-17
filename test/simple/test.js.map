@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "test.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "test.ts"
+  ],
+  "names": [
+    "MyApp",
+    "MyApp.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;YAOA;gBAKIA;oBACIC,IAAIA,CAACA,GAAGA,CAACA,UAAUA,CAACA,KAAKA,CAACA,CAACA;oBAC3BA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,GAAGA,CAACA,OAAOA,CAACA,CAAAA;gBAClCA,CAACA;gBALDD;oBAACA,iBAAMA,CAACA,oBAAoBA,CAACA;;mBAACA,sBAAGA,UAAKA;gBAH1CA;oBAACA,iBAAMA;;0BASNA;gBAADA,YAACA;YAADA,CAACA,AATD,IASC;YAED,kBAAO,CAAC,IAAI,CAAC,sBAAsB,CAAC,CAAC",
+  "sourcesContent": [
+    "import Angular from \"mangular/injector\";\nimport {Module} from \"mangular/injector\";\nimport {Inject} from \"mangular/injector\";\n\nimport \"./api/provider\";\nimport \"./api/controller\";\n\n@Module\nclass MyApp {\n\n    @Inject('ApiServiceProvider') api:any;\n\n    constructor(){\n        this.api.setService('one');\n        console.info(this.api.service)\n    }\n}\n\nAngular.init('mangular/simple/test');\n\n"
+  ]
+}
