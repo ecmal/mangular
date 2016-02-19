@@ -1,4 +1,4 @@
-import {Inject} from "mangular/injector";
+import {Inject} from "mangular/annotate";
 
 export class ApiServiceBase {
     get name(){
@@ -9,7 +9,7 @@ export class ApiServiceOne extends ApiServiceBase {
     @Inject $q:any;
     constructor(){
         super();
-        console.info(this.name)
+        console.info(this.name);
         console.info(this.$q)
     }
 }

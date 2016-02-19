@@ -1,4 +1,4 @@
-import {Inject} from "mangular/injector";
+import {Inject} from "mangular/annotate";
 
 export class ApiService {
     get name(){

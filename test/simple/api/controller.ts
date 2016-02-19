@@ -1,6 +1,6 @@
-import {Controller} from "mangular/injector";
-import {Component} from "mangular/injector";
-import {Inject} from "mangular/injector";
+import {Controller} from "mangular/annotate";
+import {Component} from "mangular/annotate";
+import {Inject} from "mangular/annotate";
 
 import {ApiService} from "./service";
 

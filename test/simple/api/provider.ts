@@ -1,10 +1,10 @@
-import {Provider} from "mangular/injector";
-import {Inject} from "mangular/injector";
+import {Provider} from "mangular/annotate";
+import {Inject} from "mangular/annotate";
 import {ApiService} from "./service";
 import {ApiServiceOne} from "./service";
 import {ApiServiceTwo} from "./service";
 
-@Provider
+@Provider('ApiService')
 class ApiServiceProvider {
 
     @Inject private $injector:any;
@@ -20,5 +20,8 @@ class ApiServiceProvider {
             case 'two' : this.service = ApiServiceTwo; break;
             default    : this.service = ApiService; break;
         }
+    }
+    provide(){
+        return new this.service()
     }
 }

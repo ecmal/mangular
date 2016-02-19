@@ -1,13 +1,12 @@
-import {Component, Inject} from "mangular/injector";
+import {Component} from "mangular/annotate";
+import {Inject} from "mangular/annotate";
 import Template from "./template";
 import desserts from "./desserts";
 
-@Component({
+@Component('mbNutron',{
     template: Template,
 })
 class mbNutron {
-
-
 
     @Inject $http;
     @Inject $mdEditDialog;
@@ -22,59 +21,41 @@ class mbNutron {
     private promise;
 
     constructor() {
-        console.info(this)
         this.selected = [];
-
         this.query = {
             order: 'name',
-            limit: 5,
+            limit: 15,
             page: 1
         };
-        this.columns = [{
-            name: 'Dessert',
-            orderBy: 'name',
-            unit: '100g serving'
-        }, {
-            descendFirst: true,
-            name: 'Type',
-            orderBy: 'type'
-        }, {
-            name: 'Calories',
-            numeric: true,
-            orderBy: 'calories.value'
-        }, {
-            name: 'Fat',
-            numeric: true,
-            orderBy: 'fat.value',
-            unit: 'g'
-        }, {
-            name: 'Iron',
-            numeric: true,
-            orderBy: 'iron.value',
-            unit: '%'
-        }, {
-            name: 'Comments',
-            orderBy: 'comment'
-        }];
         this.desserts = desserts.data;
         this.onReorder = this.onReorder.bind(this);
         this.onPaginate = this.onPaginate.bind(this);
-        this.deselect = this.deselect.bind(this);
-        this.log = this.log.bind(this);
+        this.onDeselect = this.onDeselect.bind(this);
+        this.onSelect = this.onSelect.bind(this);
+        this.loadStuff = this.loadStuff.bind(this);
+        this.poll = this.poll.bind(this);
+        this.poll();
     }
-
-    deselect(item) {
+    percent(current,total){
+        return current*100/total;
+    }
+    onDeselect(item) {
         console.log(item.name, 'was deselected');
     }
 
-    log(item) {
+    onSelect(item) {
         console.log(item.name, 'was selected');
     }
-
+    poll(){
+        this.loadStuff().then(setTimeout(()=>this.poll(),5000))
+    }
     loadStuff() {
-        this.promise = this.$timeout(function () {
-
-        }, 2000);
+        return this.promise = this.$http({
+            method: 'GET',
+            url: '/api/agents'
+        }).then(s=>{
+            this.desserts = s.data.result;
+        });
     }
 
     onReorder(order) {
@@ -93,12 +74,11 @@ class mbNutron {
         console.log('Scope Page: ' + this.query.page + ' Scope Limit: ' + this.query.limit);
         console.log('Page: ' + page + ' Limit: ' + limit);
 
-        this.promise = this.$timeout(function () {
-        }, 2000);
+        this.promise = this.$timeout(function () {}, 2000);
     }
 
     getTypes() {
-        return ['Candy', 'Ice cream', 'Other', 'Pastry'];
+        return ['fdr', 'fplus'];
     }
 
     editComment(event, dessert) {

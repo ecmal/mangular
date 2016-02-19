@@ -1,5 +1,5 @@
-import {Service} from "mangular/injector";
-import {Inject} from "mangular/injector";
+import {Service} from "mangular/annotate";
+import {Inject} from "mangular/annotate";
 
 @Service
 export class UserService {

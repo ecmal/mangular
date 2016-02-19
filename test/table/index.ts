@@ -1,23 +1,21 @@
-import Angular from "mangular/injector";
-import {Module} from "mangular/injector";
-import {Inject} from "mangular/injector";
+import Angular from "mangular/annotate";
+import {Config} from "mangular/annotate";
+import {Inject} from "mangular/annotate";
 
 import "mangular/angular/material";
 import "mangular/angular/table";
 
 import "./scripts/controller";
 
-@Module
+
 class MyApp {
-
-    @Inject('$mdThemingProvider') themes:any;
-
-    constructor(){
-        this.themes.theme('default')
+    @Config
+    themes(@Inject('$mdThemingProvider') themes:any){
+        themes.theme('default')
             .primaryPalette('blue')
             .accentPalette('pink');
     }
 }
 
-Angular.init('mangular/table/index');
+Angular.start('mangular/table/index');
 

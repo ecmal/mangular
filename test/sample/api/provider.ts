@@ -1,9 +1,9 @@
-import {Provider} from "mangular/injector";
+import {Provider} from "mangular/annotate";
 import {ApiServiceBase} from "./service";
 import {ApiServiceOne} from "./service";
 import {ApiServiceTwo} from "./service";
 
-@Provider
+@Provider('ApiService')
 class ApiServiceProvider {
     private service:any;
     constructor(){
@@ -15,5 +15,8 @@ class ApiServiceProvider {
             case 'two' : this.service = ApiServiceTwo; break;
             default    : this.service = ApiServiceBase; break;
         }
+    }
+    provide(){
+        return new this.service();
     }
 }

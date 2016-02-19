@@ -1,5 +1,5 @@
-import {Controller} from "mangular/injector";
-import {Inject} from "mangular/injector";
+import {Controller} from "mangular/annotate";
+import {Inject} from "mangular/annotate";
 
 import {UserService} from "./service";
 
