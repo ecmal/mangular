@@ -6,12 +6,13 @@
   "main"          : "build",
   "scripts"       : {
       "runtime"   : "elp compile -w -t -o ../mangular/out ../runtime",
-      "mangular"  : "elp compile -w -t"
+      "mangular"  : "elp compile -w -t",
+      "server"    : "http-server -P http://wcb.freedomfinancialnetwork.com:8000"
   },
   "libraries"     : {
-    "ecmal/core"        : "0.0.1",
-    "ecmal/node"        : "0.0.1",
-    "ecmal/runtime"     : "0.0.2",
-    "ecmal/browser"     : "0.0.1"
+    "ecmal/core"     : "0.0.1",
+    "ecmal/node"     : "0.0.1",
+    "ecmal/runtime"  : "0.0.2",
+    "ecmal/browser"  : "0.0.1"
   }
 }
