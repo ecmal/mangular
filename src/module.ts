@@ -183,6 +183,7 @@ export class MangularModule {
                 case 'mangular/angular/material'    : this.dependencies.push('ngMaterial');break;
                 case 'mangular/angular/route'       : this.dependencies.push('ngRoute');break;
                 case 'mangular/angular/table'       : this.dependencies.push('md.data.table');break;
+                case 'mangular/angular/ui-router'   : this.dependencies.push('ui.router');break;
                 default :
                     if(modules[d]){
                         modules[d].init(angular);
@@ -242,7 +243,7 @@ export class MangularModule {
     }
     private initRun(module:any,service:Definition){
         var fn = MangularModule.getMethodFunction(<Method>service);
-        module.config(fn);
+        module.run(fn);
     }
     private initConst(module:any,service:Definition){
         var field:Field = <Field>service;

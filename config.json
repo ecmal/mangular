@@ -36,5 +36,11 @@
       "dist/md-data-table.css"  : "angular/table.css",
       "dist/md-data-table.js"   : "angular/table.js"
     }
+  },
+  "angular-ui/ui-router"    : {
+    "version"            : "0.2.18",
+    "files"              : {
+      "release/angular-ui-router.js"  : "angular/ui-router.js"
+    }
   }
 }

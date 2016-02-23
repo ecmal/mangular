@@ -3,7 +3,7 @@ import * as Path from 'node/path';
 import * as https from "node/https";
 
 var TEMPLATES = [`
-System.register(['./angular'], function(exports) {return { setters:[], execute: function() {
+System.register(['./angular'], function(exports) {return { setters:[function(){}], execute: function() {
 
 "ANGULAR.SOURCE";
 
@@ -24,13 +24,13 @@ class Main{
     private config :Object ;
 
     constructor(){
-        this.getConfiguration()
+        this.getConfiguration();
         this.getFiles();
     }
 
     public static  changeModuleWrappers(data){
         var [firstReplacement,secondReplacement] = TEMPLATES[0].split('"ANGULAR.SOURCE";');
-        data = data.replace(/[(]function[-\s]?[(][-\s]?window, angular, undefined[-\s]?[)][-\s]?[{]/,firstReplacement)
+        data = data.replace(/((.|\n)*)[(]function[-\s]?[(][-\s]?window, angular, undefined[-\s]?[)][-\s]?[{]/,firstReplacement)
             .replace(/}[)][(]window, window\.angular[)]|}[)][(]window, angular[)][\s\S]*.*/,secondReplacement);
         return data;
     }
@@ -100,8 +100,8 @@ class Main{
 
     public getFile(repo, version, file,destination){
         try{
-            var path = `/${repo}/${version}/${file}`
-            console.info("FETCH",path)
+            var path = `/${repo}/${version}/${file}`;
+            console.info("FETCH",path);
             return new Promise((resolve, reject)=> {
                 let req = https.request({
                     host: 'raw.githubusercontent.com',
