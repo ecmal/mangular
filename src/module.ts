@@ -37,10 +37,8 @@ export class MangularModule {
         });
         var closure:Function = (...args)=>{
             var instance = Object.create(clazz.constructor.prototype);
-            while(instanceFields.length){
-                var name = instanceFields.shift();
-                var value = args.shift();
-                instance[name] = value;
+            for(var i=0;i<instanceFields.length;i++){
+                instance[instanceFields[i]] = args.shift();
             }
             clazz.constructor.apply(instance,args);
             if(modifier){

@@ -9,9 +9,11 @@ class PrivateLayoutComponent {
 
     private $mdSidenav:any;
     private menu:Menu;
+    private root:any;
 
-    constructor(@Inject('Menu') menu,@Inject('$mdSidenav') $mdSidenav){
+    constructor(@Inject('Menu') menu,@Inject('$mdSidenav') $mdSidenav, @Inject('$rootScope') root){
         this.menu = menu;
+        this.root = root;
         this.$mdSidenav = $mdSidenav;
     }
 

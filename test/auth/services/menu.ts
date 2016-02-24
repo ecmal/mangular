@@ -1,7 +1,7 @@
 import {Service,Inject} from "mangular/annotate";
 
 @Service
-export class Menu{
+export class Menu {
 
     public sections:any;
     private location:any;
@@ -12,7 +12,10 @@ export class Menu{
     constructor(@Inject('$location') location, @Inject('$rootScope') rootScope){
         this.location = location
         var sections :any = [
-
+            {
+                "name": "Monitoring",
+                "type": "heading"
+            },
             {
                 "name": "Dashboard",
                 "url": "dashboard",
@@ -24,26 +27,54 @@ export class Menu{
                 "type": "link",
             },
             {
-                "name": "Some Head Text",
+                "name": "Configuration",
+                "type": "heading"
+            },
+            {
+                "name": "Users",
+                "url": "users",
+                "type": "link",
+            },
+            {
+                "name": "Groups",
+                "url": "groups",
+                "type": "link",
+            },
+            {
+                "name": "Roles",
+                "url": "roles",
+                "type": "link",
+            },
+            {
+                "name": "Settings",
                 "type": "heading",
                 "children": [
                     {
-                        "name": "Pages1",
+                        "name": "Jobs",
                         "type": "toggle",
                         "pages": [
                             {
-                                "name": "Pages1_1",
+                                "name": "Cron",
+                                "url": "pages1_1",
+                                "type": "link",
+                            },{
+                                "name": "Schedule",
                                 "url": "pages1_1",
                                 "type": "link",
                             }
                         ]
                     },
                     {
-                        "name": "Pages2",
+                        "name": "Admin",
                         "type": "toggle",
                         "pages": [
                             {
-                                "name": "Pages2_1",
+                                "name": "Agent Config",
+                                "url": "pages2_1",
+                                "type": "link",
+                            },
+                            {
+                                "name": "Lead Settings",
                                 "url": "pages2_1",
                                 "type": "link",
                             }
@@ -55,7 +86,7 @@ export class Menu{
         this.sections = sections;
         rootScope.$on('$locationChangeSuccess', this.onLocationChange.bind(this));
         this.onLocationChange();//temporary solution
-        }
+    }
 
     selectSection(section){
         this.openedSection = section;
@@ -92,7 +123,7 @@ export class Menu{
         this.sections.forEach(function(section:any) {
             if (section.children) {
                 // matches nested section toggles, such as API or Customization
-                section.children.forEach(function(childSection){
+                section.children.forEach((childSection:any)=>{
                     if(childSection.pages){
                         childSection.pages.forEach(function(page){
                             matchPage(childSection, page);

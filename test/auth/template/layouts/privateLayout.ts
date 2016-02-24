@@ -4,10 +4,6 @@ export default `
             md-component-id="left"
             md-is-locked-open="$mdMedia('gt-sm')">
     <header class="nav-header">
-        <a ng-href="/" class="docs-logo" href="/">
-            <img src="https://material.angularjs.org/latest/img/icons/angular-logo.svg" alt="">
-            <h1 class="docs-logotype md-heading">WCB</h1>
-        </a>
     </header>
     <md-content role="navigation">
       <ul class="docs-menu">
@@ -31,21 +27,18 @@ export default `
 <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar">
   <div class="md-toolbar-tools">
     <md-button class="md-icon-button" aria-label="Settings" hide-gt-sm ng-click="$ctrl.toggleList()">
-      <md-icon class="md-accent">menu</md-icon>
-
+      <md-icon class="md-accent" style="color: #2C80D2">menu</md-icon>
     </md-button>
     <h2>
-      <span>Toolbar with Icon Buttons</span>
+      <span>{{$ctrl.root.title}}</span>
     </h2>
     <span flex></span>
     <md-button class="md-icon-button" aria-label="More">
         <md-icon style="color:#106CC8">more_vert</md-icon>
     </md-button>
-
   </div>
 </md-toolbar>
-<md-content layout-padding ui-view>
-
+<md-content ui-view>
 </md-content>
 </div>
 </section>

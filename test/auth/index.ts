@@ -6,9 +6,7 @@ import {Config} from "mangular/annotate";
 import {Run} from "mangular/annotate";
 import {Inject} from "mangular/annotate";
 import "mangular/angular/material";
-import "mangular/angular/animate";
 import "mangular/angular/ui-router";
-import "mangular/angular/aria";
 import "mangular/angular/table";
 
 import "./components/dashboard";
@@ -59,7 +57,7 @@ class MyApp {
                     }
                 },
                 data: {
-                    access: 'UNAUTHORIZED'
+                    access  : 'UNAUTHORIZED'
                 }
             })
             .state('private', {
@@ -74,29 +72,54 @@ class MyApp {
                 }
             })
             .state('public.login', {
-                url:'/login',
-                template: `
-                    <wc-login></wc-login>
-                `
+                url         : '/login',
+                template    : `<wc-login></wc-login>`,
+
             })
             .state('private.dashboard',{
-                url:'/dashboard',
-                template: `
-                    <wc-dashboard></wc-dashboard>
-                `
+                url         : '/dashboard',
+                template    : `<wc-dashboard></wc-dashboard>`,
+                data        : {
+                    title   : 'Dashboard'
+                }
             })
             .state('private.monitor',{
-                url:'/monitor',
-                template: `
-                    monitor
-            `
+                url         : '/monitor',
+                template    : `monitor`,
+                data        : {
+                    title   : 'Monitor'
+                }
+            })
+            .state('private.users',{
+                url         : '/users',
+                template    : `users`,
+                data        : {
+                    title   : 'Users'
+                }
+            })
+            .state('private.groups',{
+                url         : '/groups',
+                template    : `groups`,
+                data        : {
+                    title   : 'Groups'
+                }
+            })
+            .state('private.roles',{
+                url         : '/roles',
+                template    : `roles`,
+                data        : {
+                    title   : 'Roles'
+                }
             });
     }
 
     @Run
     static run(@Inject('$rootScope') rootScope , @Inject('$state') $state,@Inject ('Auth') auth){
         rootScope.globals = auth.getFromLocalStorage('globals') || {};
+        rootScope.title = "Gago";
         rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            console.info(toState.data);
+            rootScope.title = toState.data.title||"No Title";
             if(toState.data.access =='AUTHORIZED' &&  !rootScope.globals.currentUser){
                 $state.go('/login');
             }
