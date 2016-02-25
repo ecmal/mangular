@@ -108,8 +108,7 @@ export class Menu {
     isPageSelected(page){
         return this.currentPage === page;
     }
-
-
+    
     onLocationChange(){
         var path = this.location.path();
         var _this = this;
@@ -119,7 +118,6 @@ export class Menu {
                 _this.selectPage(section, page);
             }
         };
-
         this.sections.forEach(function(section:any) {
             if (section.children) {
                 // matches nested section toggles, such as API or Customization
