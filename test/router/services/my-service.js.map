@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "my-service.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "my-service.ts"
+  ],
+  "names": [
+    "MyService",
+    "MyService.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;YAMA;gBAQIA,mBAAYA,KAAKA,EAACA,EAAEA;oBAChBC,IAAIA,CAACA,CAACA,GAAGA,EAAEA,CAACA;oBACZA,IAAIA,CAACA,IAAIA,GAAGA,KAAKA,CAACA;oBAClBA,OAAOA,CAACA,IAAIA,CAACA,eAAeA,EAACA,IAAIA,CAACA,OAAOA,CAACA,CAACA;gBAC/CA,CAACA;gBATDD;oBAACA,iBAAMA;;mBAASA,8BAAOA,UAAaA;gBAHxCA;oBAACA,kBAAOA;;8BAaPA;gBAADA,gBAACA;YAADA,CAACA,AAbD,IAaC;YAbD,iCAaC,CAAA",
+  "sourcesContent": [
+    "import {Service} from \"mangular/annotate\";\nimport {Inject} from \"mangular/annotate\";\n\nimport {HttpService} from \"../providers/my-provider\";\n\n\n@Service\nexport class MyService {\n\n    @Inject private service:HttpService;\n\n    private q:any;\n    private http:any;\n\n    constructor($http,$q){\n        this.q = $q;\n        this.http = $http;\n        console.info(\"MyService.new\",this.service);\n    }\n}"
+  ]
+}

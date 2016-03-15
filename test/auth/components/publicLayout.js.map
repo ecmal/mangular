@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "publicLayout.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "publicLayout.ts"
+  ],
+  "names": [
+    "PublicLayout",
+    "PublicLayout.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;YAGA;gBAIIA;gBACAC,CAACA;gBALLD;oBAACA,oBAASA,CAACA,gBAAgBA,EAACA;wBACxBA,QAAQA,EAAMA,sBAAoBA;qBACrCA,CAACA;;iCAIDA;gBAADA,mBAACA;YAADA,CAACA,AAND,IAMC",
+  "sourcesContent": [
+    "import {Component,Inject} from \"mangular/annotate\";\nimport PublicLayoutTemplate from \"../template/layouts/publicLayout\";\n\n@Component('wcPublicLayout',{\n    template    : PublicLayoutTemplate,\n})\nclass PublicLayout{\n    constructor(){\n    }\n}"
+  ]
+}

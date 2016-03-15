@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "index.ts"
+  ],
+  "names": [
+    "MyApp",
+    "MyApp.constructor",
+    "MyApp.config"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;YAQA;gBAAAA;gBAOAC,CAACA;gBANWD,sBAAMA,GAAdA,UACkCA,GAAOA;oBAErCE,GAAGA,CAACA,UAAUA,CAACA,KAAKA,CAACA,CAACA;oBACtBA,OAAOA,CAACA,IAAIA,CAACA,GAAGA,CAACA,OAAOA,CAACA,CAACA;gBAC9BA,CAACA;gBALDF;oBAACA,iBAAMA;oBACHA,WAACA,iBAAMA,CAACA,oBAAoBA,CAACA,CAAAA;;;;mBADzBA,yBAAMA,QAKbA;gBACLA,YAACA;YAADA,CAACA,AAPD,IAOC;YAED,kBAAO,CAAC,KAAK,CAAC,uBAAuB,CAAC,CAAC",
+  "sourcesContent": [
+    "import Angular from \"mangular/annotate\";\nimport {Config} from \"mangular/annotate\";\nimport {Inject} from \"mangular/annotate\";\n\nimport \"./api/provider\";\nimport \"./api/controller\";\n\n\nclass MyApp {\n    @Config config(\n        @Inject('ApiServiceProvider') api:any\n    ){\n        api.setService('one');\n        console.info(api.service);\n    }\n}\n\nAngular.start('mangular/simple/index');\n\n"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "file": "controller.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "controller.ts"
+  ],
+  "names": [
+    "ApiController",
+    "ApiController.constructor",
+    "ApiController.sayHello",
+    "mbApiComponent",
+    "mbApiComponent.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;YAMA;gBAQIA;oBACIC,IAAIA,CAACA,IAAIA,CAACA,KAAKA,CAACA,eAAeA,CAACA,CAACA;oBACjCA,IAAIA,CAACA,IAAIA,GAAGA,IAAIA,CAACA,GAAGA,CAACA,IAAIA,CAACA;gBAC9BA,CAACA;gBACDD,gCAAQA,GAARA;oBACIE,OAAOA,CAACA,IAAIA,CAACA,OAAOA,EAACA,IAAIA,CAACA,IAAIA,CAACA,CAAAA;gBACnCA,CAACA;gBAXDF;oBAACA,iBAAMA;;mBAACA,+BAAIA,UAAKA;gBACjBA;oBAACA,iBAAMA;;mBAACA,8BAAGA,UAAYA;gBAJ3BA;oBAACA,qBAAUA;;kCAeVA;gBAADA,oBAACA;YAADA,CAACA,AAfD,IAeC;YAED;gBAQIG;oBACIC,OAAOA,CAACA,IAAIA,CAACA,eAAeA,CAACA,CAAAA;gBACjCA,CAACA;gBAVLD;oBAACA,oBAASA,CAACA;wBACPA,QAAQA,EAAKA,mCAAmCA;wBAChDA,QAAQA,EAAMA;4BACVA,IAAIA,EAAMA,GAAGA;yBAChBA;qBACJA,CAACA;;mCAMDA;gBAADA,qBAACA;YAADA,CAACA,AAXD,IAWC",
+  "sourcesContent": [
+    "import {Controller} from \"mangular/annotate\";\nimport {Component} from \"mangular/annotate\";\nimport {Inject} from \"mangular/annotate\";\n\nimport {ApiService} from \"./service\";\n\n@Controller\nclass ApiController {\n\n    @Inject $log:any;\n    @Inject api:ApiService;\n\n    public name:string;\n\n    constructor(){\n        this.$log.debug('ApiController');\n        this.name = this.api.name;\n    }\n    sayHello(){\n        console.info('Hello',this.name)\n    }\n}\n\n@Component({\n    template    :`<span>Name: {{$ctrl.hero}}</span>`,\n    bindings    : {\n        hero    : '='\n    }\n})\nclass mbApiComponent {\n\n    constructor(){\n        console.info('API COMPONENT')\n    }\n}"
+  ]
+}

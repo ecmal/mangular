@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "file": "menuLink.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "menuLink.ts"
+  ],
+  "names": [
+    "MenuLink",
+    "MenuLink.constructor",
+    "MenuLink.link"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;YAGA;gBAiBIA,kBAAoBA,IAAIA,EAAsBA,QAAQA;oBAClDC,QAAQA,CAACA,QAAQA,GAAGA,QAAQA,CAACA;oBAC7BA,QAAQA,CAACA,IAAIA,GAAGA,IAAIA,CAACA;gBACzBA,CAACA;gBAEMD,aAAIA,GAAXA,UAAYA,KAAKA,EAAEA,IAAIA,EAAEA,KAAKA;oBAC1BE,KAAKA,CAACA,UAAUA,GAAGA,UAAUA,OAAOA;wBAChC,wDAAwD;wBACxD,MAAM,CAAC,QAAQ,CAAC,IAAI,CAAC,cAAc,CAAC,KAAK,CAAC,OAAO,CAAC,CAAA;oBACtD,CAAC,CAACA;oBACFA,KAAKA,CAACA,YAAYA,GAAGA,UAAUA,OAAOA;wBAClC,OAAO,CAAC,GAAG,CAAC,cAAc,EAAC,OAAO,CAAC,CAAC;wBACpC,QAAQ,CAAC,QAAQ,CAAC,IAAI,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC;oBACxC,CAAC,CAACA;gBACNA,CAACA;gBA/BLF;oBAACA,oBAASA,CAACA,UAAUA,EAACA;wBAClBA,KAAKA,EAASA;4BACVA,OAAOA,EAAEA,GAAGA;yBACfA;wBACDA,QAAQA,EAAMA,iUAObA;qBACJA,CAACA;oBAKcA,WAACA,iBAAMA,CAAAA;oBAAMA,WAACA,iBAAMA,CAACA,WAAWA,CAACA,CAAAA;;6BAiBhDA;gBAADA,eAACA;YAADA,CAACA,AAlCD,IAkCC",
+  "sourcesContent": [
+    "import {Directive,Inject} from \"mangular/annotate\"\nimport {Menu} from \"../services/menu\";\n\n@Directive('menuLink',{\n    scope       : {\n        section: '='\n    },\n    template    : `\n        <md-button  ng-class=\"{'active' : isSelected(section)}\" ng-hash=\"{{section.url}}\" ng-click=\"focusSection(section)\">\n            {{section.name}}\n            <span class=\"md-visually-hidden\" ng-if=\"isSelected(section)\">\n                current page\n            </span>\n        </md-button>\n    `\n})\nclass MenuLink {\n    static menu :Menu;\n    static location :any;\n\n    constructor(@Inject Menu,@Inject('$location') location){\n        MenuLink.location = location;\n        MenuLink.menu = Menu;\n    }\n\n    static link(scope, elem, attrs) {\n        scope.isSelected = function (section) {\n            //console.log(MenuLink.menu.isSectionSelected(section));\n            return MenuLink.menu.isPageSelected(scope.section)\n        };\n        scope.focusSection = function (section) {\n            console.log('focusSection',section);\n            MenuLink.location.path(section.url);\n        };\n    }\n\n\n}"
+  ]
+}

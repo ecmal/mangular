@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "dashboard.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "dashboard.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;YAAA,oBAAe,4XAad,EAAC",
+  "sourcesContent": [
+    "export default `\n    <md-tabs md-dynamic-height md-border-bottom>\n        <md-tab label=\"Grid\">\n            <md-content class=\"md-padding\">\n                Grid Place\n            </md-content>\n        </md-tab>\n        <md-tab label=\"Table\">\n            <md-content class=\"md-padding\">\n                Table Place\n            </md-content>\n        </md-tab>\n    </md-tabs>\n`;\n\n"
+  ]
+}

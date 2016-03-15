@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular Router</title>
+    <script src="../../out/runtime/package.js" main></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
+  </head>
+
+  <body ng-controller="MyController as mc">
+    <hello></hello>
+    <other></other>
+    <comp></comp>
+    <script>
+      System.import('mangular/router/index').catch(function(e){
+        console.error(e);
+      })
+    </script>
+  </body>
+</html>

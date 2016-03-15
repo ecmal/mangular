@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "selected-header.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "selected-header.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;YAAA,oBAAe,idAad,EAAC",
+  "sourcesContent": [
+    "export default `\n<md-toolbar class=\"md-table-toolbar alternate\" ng-show=\"$ctrl.selected.length\">\n  <div class=\"md-toolbar-tools\">\n    <span>{{$ctrl.selected.length}} {{$ctrl.selected.length > 1 ? 'items' : 'item'}} selected</span>\n    <span flex></span>\n    <md-button class=\"md-icon-button\">\n      <md-icon>delete</md-icon>\n    </md-button>\n    <md-button class=\"md-icon-button\">\n      <md-icon>more_vert</md-icon>\n    </md-button>\n  </div>\n</md-toolbar>\n`;"
+  ]
+}

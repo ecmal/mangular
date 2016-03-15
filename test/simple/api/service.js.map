@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "file": "service.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "service.ts"
+  ],
+  "names": [
+    "ApiService",
+    "ApiService.constructor",
+    "ApiService.name",
+    "ApiServiceOne",
+    "ApiServiceOne.constructor",
+    "ApiServiceTwo",
+    "ApiServiceTwo.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;YAEA;gBAAAA;gBAIAC,CAACA;gBAHGD,sBAAIA,4BAAIA;yBAARA;wBACIE,MAAMA,CAACA,IAAIA,CAACA,WAAWA,CAACA,IAAIA,CAACA;oBACjCA,CAACA;;;mBAAAF;gBACLA,iBAACA;YAADA,CAACA,AAJD,IAIC;YAJD,mCAIC,CAAA;YAED;gBAAmCG,iCAAUA;gBAEzCA;oBACIC,iBAAOA,CAACA;oBACRA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,IAAIA,CAACA,CAACA;oBACxBA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,EAAEA,CAACA,CAAAA;gBACzBA,CAACA;gBALDD;oBAACA,iBAAMA;;mBAACA,6BAAEA,UAAKA;gBAMnBA,oBAACA;YAADA,CAACA,AAPD,EAAmC,UAAU,EAO5C;YAPD,yCAOC,CAAA;YAED;gBAAmCE,iCAAUA;gBAEzCA;oBACIC,iBAAOA,CAACA;oBACRA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,IAAIA,CAACA,CAACA;oBACxBA,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,KAAKA,CAACA,CAAAA;gBAC5BA,CAACA;gBALDD;oBAACA,iBAAMA;;mBAACA,gCAAKA,UAAKA;gBAMtBA,oBAACA;YAADA,CAACA,AAPD,EAAmC,UAAU,EAO5C;YAPD,yCAOC,CAAA",
+  "sourcesContent": [
+    "import {Inject} from \"mangular/annotate\";\n\nexport class ApiService {\n    get name(){\n        return this.constructor.name;\n    }\n}\n\nexport class ApiServiceOne extends ApiService {\n    @Inject $q:any;\n    constructor(){\n        super();\n        console.info(this.name);\n        console.info(this.$q)\n    }\n}\n\nexport class ApiServiceTwo extends ApiService {\n    @Inject $http:any;\n    constructor(){\n        super();\n        console.info(this.name);\n        console.info(this.$http)\n    }\n}"
+  ]
+}

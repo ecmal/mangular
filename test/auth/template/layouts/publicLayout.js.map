@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "publicLayout.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "publicLayout.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;YAAA,oBAAe,4BAGd,EAAC",
+  "sourcesContent": [
+    "export default `\n<div  ui-view>\n</div>\n`;"
+  ]
+}

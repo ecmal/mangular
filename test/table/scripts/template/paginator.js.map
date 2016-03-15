@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "paginator.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "paginator.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;YACA,oBAAe,6MAGd,EAAC",
+  "sourcesContent": [
+    "\nexport default `\n<data-md-table-pagination md-limit=\"$ctrl.query.limit\" md-page=\"$ctrl.query.page\" md-total=\"{{$ctrl.desserts.length}}\" md-on-paginate=\"onPaginate\" md-page-select>\n</data-md-table-pagination>\n`;"
+  ]
+}

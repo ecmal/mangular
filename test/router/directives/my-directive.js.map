@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "file": "my-directive.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "my-directive.ts"
+  ],
+  "names": [
+    "Helpers",
+    "Helpers.constructor",
+    "Helpers.myFactory",
+    "MyController",
+    "MyController.constructor",
+    "MyController.hello",
+    "MyComponent",
+    "MyComponent.constructor",
+    "MyDirective",
+    "MyDirective.constructor",
+    "MyDirective.link",
+    "MyFilter",
+    "MyFilter.constructor",
+    "MyFilter.filter"
+  ],
+  "mappings": "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",
+  "sourcesContent": [
+    "import {Directive} from \"mangular/annotate\";\nimport {Component} from \"mangular/annotate\";\nimport {Filter} from \"mangular/annotate\";\nimport {Factory} from \"mangular/annotate\";\nimport {Value} from \"mangular/annotate\";\nimport {Const} from \"mangular/annotate\";\nimport {Inject} from \"mangular/annotate\";\nimport {MyService} from \"../services/my-service\";\n\n\nclass Helpers {\n\n    @Const\n    static myConst = {\n        const : 'CONST'\n    };\n\n    @Value\n    static myStatic = {\n        stat : 'STAT'\n    };\n\n    @Factory\n    static myFactory(){\n        return {gago:'jan'}\n    }\n}\nclass MyController {\n    @Directive\n    static hello(){\n        return {\n            scope       : {},\n            restrict    : 'AE',\n            replace     : true,\n            template    : '<div>Hello</div>',\n        }\n    }\n}\n\n@Component('comp',{\n    template    : '<div>{{$ctrl.name}}</div>'\n})\nclass MyComponent {\n\n    @Inject\n    private service:MyService;\n\n    private name:string;\n    constructor(@Inject myFactory, @Inject myStatic,@Inject myConst){\n        console.info(\"MyComponent\",this.service);\n        this.name = `Hello Other factory.gago:${myFactory.gago} value.stat:${myStatic.stat} const.const:${myConst.const}`;\n    }\n}\n\n@Directive('other',{\n    scope       : {},\n    restrict    : 'AE',\n    replace     : true,\n    template    : `<p style=\"background-color:{{color}}\">{{$ctrl.name | low:'gago'}}</p>`\n})\nclass MyDirective {\n    static link(scope, elem, attrs) {\n        elem.bind('click', function() {\n            elem.css('background-color','#ccccee');\n\n            scope.$apply(()=>{\n                scope.color = \"#ccccee\";\n            });\n        });\n        elem.bind('mouseover', function() {\n            elem.css('cursor', 'pointer');\n        });\n    }\n\n    @Inject\n    private service:MyService;\n\n    private name:string;\n\n    constructor(){\n        console.info(\"MyDirective\",this.service);\n        this.name = \"Hello Other\"\n    }\n}\n\n@Filter('low')\nclass MyFilter {\n\n    @Inject\n    private service:MyService;\n\n    filter(input,param){\n        return String(input).toLowerCase()+' : '+String(param);\n    }\n\n}"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "privateLayout.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "privateLayout.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;YAAA,oBAAe,ykEA4Cd,EAAC",
+  "sourcesContent": [
+    "export default `\n<section flex layout=\"row\" style=\"min-height: 100%\">\n<md-sidenav class=\"site-sidenav md-sidenav-left md-whiteframe-z2\"\n            md-component-id=\"left\"\n            md-is-locked-open=\"$mdMedia('gt-sm')\">\n    <header class=\"nav-header\">\n    </header>\n    <md-content role=\"navigation\">\n      <ul class=\"docs-menu\">\n            <li ng-repeat=\"section in $ctrl.getMenuSection()\" class=\"parent-list-item {{section.className || ''}}\" ng-class=\"{'parentActive' :  $ctrl.isOpen(section)}\">\n              <h2 class=\"menu-heading md-subhead\" ng-if=\"section.type === 'heading'\" id=\"heading_{{ section.name }}\">\n                {{section.name}}\n              </h2>\n              <menu-link section=\"section\" ng-if=\"section.type === 'link' && !section.hidden\"></menu-link>\n              <menu-toggle section=\"section\" ng-if=\"section.type === 'toggle' && !section.hidden\"></menu-toggle>\n              <ul ng-if=\"section.children\" class=\"menu-nested-list\">\n                <li ng-repeat=\"child in section.children\" ng-class=\"{'childActive' : $ctrl.isOpen(child)}\">\n                  <menu-link section=\"child\" ng-if=\"child.type === 'link'\"></menu-link>\n                  <menu-toggle section=\"child\" ng-if=\"child.type === 'toggle'\"></menu-toggle>\n                </li>\n              </ul>\n            </li>\n      </ul>\n    </md-content>\n</md-sidenav>\n<div flex layout=\"column\" tabIndex=\"-1\" role=\"main\" class=\"md-whiteframe-z2\">\n<md-toolbar class=\"md-whiteframe-glow-z1 site-content-toolbar\">\n  <div class=\"md-toolbar-tools\">\n    <md-button class=\"md-icon-button\" aria-label=\"Settings\" hide-gt-sm ng-click=\"$ctrl.toggleList()\">\n      <md-icon class=\"md-accent\" style=\"color: #2C80D2\">menu</md-icon>\n    </md-button>\n    <h2>\n      <span>{{$ctrl.root.title}}</span>\n    </h2>\n    <span flex></span>\n    <md-button class=\"md-icon-button\" aria-label=\"More\">\n        <md-icon style=\"color:#106CC8\">more_vert</md-icon>\n    </md-button>\n  </div>\n</md-toolbar>\n<md-content ui-view>\n</md-content>\n</div>\n</section>\n`;"
+  ]
+}

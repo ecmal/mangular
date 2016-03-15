@@ -1,0 +1,1302 @@
+{
+  "name": "mangular",
+  "vendor": "ecmal",
+  "version": "0.0.1",
+  "registry": "github",
+  "bundle": false,
+  "libraries": {
+    "ecmal/core": "0.0.1",
+    "ecmal/node": "0.0.1",
+    "ecmal/runtime": "0.0.2",
+    "ecmal/browser": "0.0.1"
+  },
+  "author": {
+    "name": "Grigor",
+    "email": "ggrigoryan@bills.com"
+  },
+  "commit": "f6d7f32d819fe21478d0dc203c1119d08a1f2f03",
+  "repository": "https://github.com/ecmal/mangular.git",
+  "modules": {
+    "README": {
+      "name": "README",
+      "files": {
+        ".md": {
+          "size": 37,
+          "hash": "e88a68f4f3dbdfe227fb589d11c5affb",
+          "sha": "7714361ba677915bd801249d47401d82af6ee6d7"
+        }
+      }
+    },
+    "config": {
+      "name": "config",
+      "files": {
+        ".json": {
+          "size": 1304,
+          "hash": "29c26a64f0ba6319ef5dfee69678afcf",
+          "sha": "d8f3aa88d07bdf12337e0ed851617b1f1423dc91"
+        }
+      }
+    },
+    "package": {
+      "name": "package",
+      "files": {
+        ".json": {
+          "size": 525,
+          "hash": "c1f5bbe0229b30f88d64fe086cf0d092",
+          "sha": "9c6083b97f72b4ca560a24700839dc5fcd7a7ab2"
+        }
+      }
+    },
+    "src/angular/angular": {
+      "name": "src/angular/angular",
+      "version": "ba3528b5d40fb7bcec11fe0463b3a334",
+      "size": 1127060,
+      "hash": "bcc271b51938e979421f4fa957794047",
+      "files": {
+        ".d.ts": {
+          "size": 165,
+          "hash": "ba3528b5d40fb7bcec11fe0463b3a334",
+          "sha": "0391823dedaab44641e6648f015ddbe8d13a4001"
+        },
+        ".js": {
+          "size": 1127060,
+          "hash": "bcc271b51938e979421f4fa957794047",
+          "sha": "9420e0fa3bb366faf958530d1f1b206c46ad321e"
+        }
+      }
+    },
+    "src/angular/animate": {
+      "name": "src/angular/animate",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 149618,
+      "hash": "42d1422e3a3e77728c5d1d0a01117075",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 149618,
+          "hash": "42d1422e3a3e77728c5d1d0a01117075",
+          "sha": "9540569e2ec1de043ada0c949798bb702d71a027"
+        }
+      }
+    },
+    "src/angular/aria": {
+      "name": "src/angular/aria",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 14998,
+      "hash": "f5a5e11105af22e0e36fd98dba00db28",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 14998,
+          "hash": "f5a5e11105af22e0e36fd98dba00db28",
+          "sha": "64c991840a07b4f59e4f6f78098f48c852e5e8e4"
+        }
+      }
+    },
+    "src/angular/material": {
+      "name": "src/angular/material",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 849541,
+      "hash": "308ffebd8ad47a4088d4bf8084be38b1",
+      "files": {
+        ".css": {
+          "size": 428981,
+          "hash": "46af97d920a21fe0ed5320a93fdb3bf8",
+          "sha": "97d54861bd119a2ebc94065f5762647f7a2e2726"
+        },
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 849541,
+          "hash": "308ffebd8ad47a4088d4bf8084be38b1",
+          "sha": "2fc89c1f5bf181e34e946a2fe0ce2ee8aa6cc7bb"
+        }
+      }
+    },
+    "src/angular/route": {
+      "name": "src/angular/route",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 37381,
+      "hash": "811553cd40d37b4443f03c48f6cc6dfc",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 37381,
+          "hash": "811553cd40d37b4443f03c48f6cc6dfc",
+          "sha": "9feb45aebc6f34a02d2e2445d9cc5998e9ba3f5c"
+        }
+      }
+    },
+    "src/angular/table": {
+      "name": "src/angular/table",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 36873,
+      "hash": "94a62d3eb1d98e8941dc864363d9fa00",
+      "files": {
+        ".css": {
+          "size": 10628,
+          "hash": "4499a440c829f1548298024157034efe",
+          "sha": "23c6592d0b95aca95a3e38e05d8c7e79aad89d77"
+        },
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 36873,
+          "hash": "94a62d3eb1d98e8941dc864363d9fa00",
+          "sha": "0b86bf70ac868c20a23e36cfda9b90c23532ed8e"
+        }
+      }
+    },
+    "src/angular/ui-router": {
+      "name": "src/angular/ui-router",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 169587,
+      "hash": "9b222b8894c7fa75f75f5898f01d241d",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 169587,
+          "hash": "9b222b8894c7fa75f75f5898f01d241d",
+          "sha": "b5a000bff957333de607855b39da05d3043bed1d"
+        }
+      }
+    },
+    "src/annotate": {
+      "name": "src/annotate",
+      "version": "24833d1e71d891a5aba3f4e9eee4bbd9",
+      "size": 7216,
+      "hash": "a6e3977bab07c0a49ba6de91d3302623",
+      "files": {
+        ".ts": {
+          "size": 4281,
+          "hash": "24833d1e71d891a5aba3f4e9eee4bbd9",
+          "sha": "a2a0c03acea3d10e87f977ac24506629a0622ebf"
+        },
+        ".js.map": {
+          "size": 11366,
+          "hash": "86082a37d5cd87a7bd33b51cf44f2209"
+        },
+        ".js": {
+          "size": 7216,
+          "hash": "a6e3977bab07c0a49ba6de91d3302623"
+        },
+        ".d.ts": {
+          "size": 741,
+          "hash": "556f1d7cc496731677564aee0f46d0cc"
+        }
+      }
+    },
+    "src/module": {
+      "name": "src/module",
+      "version": "da59aed53098fe6c8c1d9d5a894d4159",
+      "size": 19771,
+      "hash": "409b387987de9ec08928161aa71ca7bc",
+      "files": {
+        ".ts": {
+          "size": 13657,
+          "hash": "da59aed53098fe6c8c1d9d5a894d4159",
+          "sha": "d1e6d8d2f287954ab7e93559350c84865052c68a"
+        },
+        ".js.map": {
+          "size": 32997,
+          "hash": "a5f556edaa35a5e7c46410c7405d6cf5"
+        },
+        ".js": {
+          "size": 19771,
+          "hash": "409b387987de9ec08928161aa71ca7bc"
+        },
+        ".d.ts": {
+          "size": 1871,
+          "hash": "7671fc47d1e79dbf92f15fc7aee4e7c4"
+        }
+      }
+    },
+    "test/auth/assets/app": {
+      "name": "test/auth/assets/app",
+      "files": {
+        ".css": {
+          "size": 22826,
+          "hash": "ce550843f69aeb30c1bea11791db4c1b",
+          "sha": "8dac625cdea59056b010c6e6d93eb097734640ca"
+        }
+      }
+    },
+    "test/auth/assets/logo": {
+      "name": "test/auth/assets/logo",
+      "files": {
+        ".svg": {
+          "size": 3000,
+          "hash": "d79bee179cda798054a5e119e214c6b4",
+          "sha": "2946fd2f32c7e9b879f40df1d23c88317d5079f1"
+        }
+      }
+    },
+    "test/auth/components/dashboard": {
+      "name": "test/auth/components/dashboard",
+      "version": "9d553bc644a0f6c1e1ecf8c466fb3682",
+      "size": 1778,
+      "hash": "ac1dbea9b9d18cf0a99fe8afe7099bb9",
+      "files": {
+        ".ts": {
+          "size": 293,
+          "hash": "9d553bc644a0f6c1e1ecf8c466fb3682",
+          "sha": "ac9dcbbcec86175cc1b074cb83a84f9c149a5057"
+        },
+        ".js.map": {
+          "size": 807,
+          "hash": "4417820a0c86b675d13fde4e0e13e4ce"
+        },
+        ".js": {
+          "size": 1778,
+          "hash": "ac1dbea9b9d18cf0a99fe8afe7099bb9"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/auth/components/logIn": {
+      "name": "test/auth/components/logIn",
+      "version": "0957edeca106256994e801f32b11ea7c",
+      "size": 3163,
+      "hash": "6303e0e5da13b56cd2781e880e19d3d3",
+      "files": {
+        ".ts": {
+          "size": 1042,
+          "hash": "0957edeca106256994e801f32b11ea7c",
+          "sha": "b264be810912f804c715b679850c32c98d3052bc"
+        },
+        ".js.map": {
+          "size": 2505,
+          "hash": "a460b1319d8919d794c09135b3708878"
+        },
+        ".js": {
+          "size": 3163,
+          "hash": "6303e0e5da13b56cd2781e880e19d3d3"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/auth/components/privateLayout": {
+      "name": "test/auth/components/privateLayout",
+      "version": "bf42783903dc7ae84de25c875945a020",
+      "size": 3009,
+      "hash": "2301369ba2ccfa7267cee23c266c63bc",
+      "files": {
+        ".ts": {
+          "size": 863,
+          "hash": "bf42783903dc7ae84de25c875945a020",
+          "sha": "32f27620811e9880c784de04112f23c0a60b04bc"
+        },
+        ".js.map": {
+          "size": 2339,
+          "hash": "1daa15827ef878475ae5b7960a0eec7c"
+        },
+        ".js": {
+          "size": 3009,
+          "hash": "2301369ba2ccfa7267cee23c266c63bc"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/auth/components/publicLayout": {
+      "name": "test/auth/components/publicLayout",
+      "version": "1a4f8d4067137c717ad0e0c338e91604",
+      "size": 1701,
+      "hash": "5ade962717618c46350e4cf168362d87",
+      "files": {
+        ".ts": {
+          "size": 241,
+          "hash": "1a4f8d4067137c717ad0e0c338e91604",
+          "sha": "6674ea8267441355b9b2358f9310459b308c0890"
+        },
+        ".js.map": {
+          "size": 693,
+          "hash": "3414a139fbfaf588dfc2780386ebabcd"
+        },
+        ".js": {
+          "size": 1701,
+          "hash": "5ade962717618c46350e4cf168362d87"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/auth/directives/menuLink": {
+      "name": "test/auth/directives/menuLink",
+      "version": "0365760de962af62be53234cea99d59d",
+      "size": 2836,
+      "hash": "f899ff58db649e43378e11373f2f04d0",
+      "files": {
+        ".ts": {
+          "size": 1089,
+          "hash": "0365760de962af62be53234cea99d59d",
+          "sha": "f966561c420cf2ce8655c82abe3d169d649a9515"
+        },
+        ".js.map": {
+          "size": 2213,
+          "hash": "f1a754271ddae0f06a038920703b9965"
+        },
+        ".js": {
+          "size": 2836,
+          "hash": "f899ff58db649e43378e11373f2f04d0"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/auth/directives/menuToggle": {
+      "name": "test/auth/directives/menuToggle",
+      "version": "ea07a5ad574d7ae39ed2fb4b2f420dab",
+      "size": 4425,
+      "hash": "b6f34a2a2a5488ba06c4369dfaecf184",
+      "files": {
+        ".ts": {
+          "size": 2486,
+          "hash": "ea07a5ad574d7ae39ed2fb4b2f420dab",
+          "sha": "9b37655368a0fbd562a9cc8ebb05c8f57fc9dbb1"
+        },
+        ".js.map": {
+          "size": 4544,
+          "hash": "b54255668126486275e6334bd43a17c7"
+        },
+        ".js": {
+          "size": 4425,
+          "hash": "b6f34a2a2a5488ba06c4369dfaecf184"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/auth/index": {
+      "name": "test/auth/index",
+      "version": "ee845069bc1daef31a269fe43ebeb467",
+      "size": 7834,
+      "hash": "e76e1257eefe2020e6b57d6cd710bcff",
+      "files": {
+        ".html": {
+          "size": 647,
+          "hash": "48025af6352bb144f78ab90bf2d1bf27",
+          "sha": "379df8677cbcc87ad21bf886e7da625fd8e40cdd"
+        },
+        ".ts": {
+          "size": 4503,
+          "hash": "ee845069bc1daef31a269fe43ebeb467",
+          "sha": "74e45e33c18431ed4012407581669f3cb045ac78"
+        },
+        ".js.map": {
+          "size": 8448,
+          "hash": "f272bd85bab0c925930b54038e5a5b36"
+        },
+        ".js": {
+          "size": 7834,
+          "hash": "e76e1257eefe2020e6b57d6cd710bcff"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/auth/services/auth": {
+      "name": "test/auth/services/auth",
+      "version": "6d81b5b79d1878eed3d58566df4b37d3",
+      "size": 3399,
+      "hash": "021a7a5e72113a874a25fbae965f46e8",
+      "files": {
+        ".ts": {
+          "size": 1314,
+          "hash": "6d81b5b79d1878eed3d58566df4b37d3",
+          "sha": "1ffefe6b88e58f740745f12e0babca9f8dae5a8b"
+        },
+        ".js.map": {
+          "size": 3342,
+          "hash": "54dac665063466dd04c202a89193ccdd"
+        },
+        ".js": {
+          "size": 3399,
+          "hash": "021a7a5e72113a874a25fbae965f46e8"
+        },
+        ".d.ts": {
+          "size": 424,
+          "hash": "9ad9d361b858ec05cf95ecaf513d3a02"
+        }
+      }
+    },
+    "test/auth/services/menu": {
+      "name": "test/auth/services/menu",
+      "version": "4826617132d3c9916e30bbf2d9f486a6",
+      "size": 7546,
+      "hash": "15088ad5294c1784373b39aac9c0df20",
+      "files": {
+        ".ts": {
+          "size": 4463,
+          "hash": "4826617132d3c9916e30bbf2d9f486a6",
+          "sha": "b7c76698b48f3ab5ea30aa25dd4e9b0725ab4ff9"
+        },
+        ".js.map": {
+          "size": 8663,
+          "hash": "907cf177957b53acff3e1cc272a672b5"
+        },
+        ".js": {
+          "size": 7546,
+          "hash": "15088ad5294c1784373b39aac9c0df20"
+        },
+        ".d.ts": {
+          "size": 446,
+          "hash": "dc90cdb3cf281dff66bc4021f705a209"
+        }
+      }
+    },
+    "test/auth/template/layouts/privateLayout": {
+      "name": "test/auth/template/layouts/privateLayout",
+      "version": "ea6a2e27eb5810ff143ee25462d6eff9",
+      "size": 2322,
+      "hash": "a90ec37e32c07992df439df676810230",
+      "files": {
+        ".ts": {
+          "size": 2013,
+          "hash": "ea6a2e27eb5810ff143ee25462d6eff9",
+          "sha": "6de47e1f42a58d7b252aa5493ba4549c0987d870"
+        },
+        ".js.map": {
+          "size": 2379,
+          "hash": "10b1109623e341d073f849060d924332"
+        },
+        ".js": {
+          "size": 2322,
+          "hash": "a90ec37e32c07992df439df676810230"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/auth/template/layouts/publicLayout": {
+      "name": "test/auth/template/layouts/publicLayout",
+      "version": "ace482b2ec130eb3060fc7bb1bee4818",
+      "size": 228,
+      "hash": "930bfea19f3f629803d9b449cc66c51d",
+      "files": {
+        ".ts": {
+          "size": 41,
+          "hash": "ace482b2ec130eb3060fc7bb1bee4818",
+          "sha": "57be7782cf2d4671e641a4fd9b2e23f6928ee292"
+        },
+        ".js.map": {
+          "size": 282,
+          "hash": "b0fe8fb68115b891a22839e8aa789191"
+        },
+        ".js": {
+          "size": 228,
+          "hash": "930bfea19f3f629803d9b449cc66c51d"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/auth/template/pages/dashboard": {
+      "name": "test/auth/template/pages/dashboard",
+      "version": "e6c2ef0e71f802bc726eb0d28305661f",
+      "size": 577,
+      "hash": "e467bfc60630108f870e7e112594dfc8",
+      "files": {
+        ".ts": {
+          "size": 377,
+          "hash": "e6c2ef0e71f802bc726eb0d28305661f",
+          "sha": "b0438892cb1116e7bd266728cbcc5f66af4f24cf"
+        },
+        ".js.map": {
+          "size": 632,
+          "hash": "7c4ad0feb807300200a376385ed707ee"
+        },
+        ".js": {
+          "size": 577,
+          "hash": "e467bfc60630108f870e7e112594dfc8"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/auth/template/pages/logIn": {
+      "name": "test/auth/template/pages/logIn",
+      "version": "e5322d9b0dfd28c2dc879f3f53862166",
+      "size": 1235,
+      "hash": "39998c326b1348626d32181fdb38a2ba",
+      "files": {
+        ".ts": {
+          "size": 1009,
+          "hash": "e5322d9b0dfd28c2dc879f3f53862166",
+          "sha": "e329bbf42f183650e4681bc959ee08ad55d59e5f"
+        },
+        ".js.map": {
+          "size": 1288,
+          "hash": "dbe3dab3ebe477d0fc39140d6a900a9f"
+        },
+        ".js": {
+          "size": 1235,
+          "hash": "39998c326b1348626d32181fdb38a2ba"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/build": {
+      "name": "test/build",
+      "version": "56d425d1f81c141f8697cbc82468d1ef",
+      "size": 6378,
+      "hash": "a3326eb11f1189330ee5a61e35889a4e",
+      "files": {
+        ".ts": {
+          "size": 4284,
+          "hash": "56d425d1f81c141f8697cbc82468d1ef",
+          "sha": "952df53cfcaa4672e157d85a045ce0e07137f02a"
+        },
+        ".js.map": {
+          "size": 9865,
+          "hash": "fd941a947f4c5ac7193f5e9a3c006dc5"
+        },
+        ".js": {
+          "size": 6378,
+          "hash": "a3326eb11f1189330ee5a61e35889a4e"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/router/controllers/my-controller": {
+      "name": "test/router/controllers/my-controller",
+      "version": "e5d65f50fdb77e629497d4939d7eab91",
+      "size": 1905,
+      "hash": "f8706f451b807c5172cadf5bef5a248e",
+      "files": {
+        ".ts": {
+          "size": 291,
+          "hash": "e5d65f50fdb77e629497d4939d7eab91",
+          "sha": "ffb4645cdc166ec8ec15c4bf0b4acbcceccbdebc"
+        },
+        ".js.map": {
+          "size": 809,
+          "hash": "036765578b6a1bb180da5f6d9fbb5f4e"
+        },
+        ".js": {
+          "size": 1905,
+          "hash": "f8706f451b807c5172cadf5bef5a248e"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/router/directives/my-directive": {
+      "name": "test/router/directives/my-directive",
+      "version": "fe6309c01721b9be49bd1b823718b1d6",
+      "size": 6713,
+      "hash": "c48c763262506d18454eaa69d37e5a55",
+      "files": {
+        ".ts": {
+          "size": 2112,
+          "hash": "fe6309c01721b9be49bd1b823718b1d6",
+          "sha": "739c80a78ca9c9d386e1bc4c16f2b5627fae1eee"
+        },
+        ".js.map": {
+          "size": 5090,
+          "hash": "e776a457209fbbc84f1c14afe8483438"
+        },
+        ".js": {
+          "size": 6713,
+          "hash": "c48c763262506d18454eaa69d37e5a55"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/router/index": {
+      "name": "test/router/index",
+      "version": "82e9d4b47b8c5b4529317b4a9024353d",
+      "size": 4156,
+      "hash": "65d34c943626d28df9d52de6e062514b",
+      "files": {
+        ".html": {
+          "size": 743,
+          "hash": "8dedce0aab141f442922793ac6d41977",
+          "sha": "4e53baece34f070a670a6c8ccdaf9bb6c61cf65c"
+        },
+        ".ts": {
+          "size": 944,
+          "hash": "82e9d4b47b8c5b4529317b4a9024353d",
+          "sha": "038c6cb9f77ae9af7a85b9482e49d0a357269595"
+        },
+        ".js.map": {
+          "size": 2384,
+          "hash": "1cb9cd05ca513b3c5f4df8df04bff1bb"
+        },
+        ".js": {
+          "size": 4156,
+          "hash": "65d34c943626d28df9d52de6e062514b"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/router/providers/my-provider": {
+      "name": "test/router/providers/my-provider",
+      "version": "2c40b88072c1032278a9aca3259d53c8",
+      "size": 3916,
+      "hash": "c04e9853410ccdf0492851e3daa351ee",
+      "files": {
+        ".ts": {
+          "size": 1174,
+          "hash": "2c40b88072c1032278a9aca3259d53c8",
+          "sha": "cd72bcf141dd79b11273444e470d60d8f49f5da1"
+        },
+        ".js.map": {
+          "size": 2917,
+          "hash": "a93cba85bab5e13cb4b777dd5404a474"
+        },
+        ".js": {
+          "size": 3916,
+          "hash": "c04e9853410ccdf0492851e3daa351ee"
+        },
+        ".d.ts": {
+          "size": 530,
+          "hash": "3898053ac8dbb2474f7549dbd97061af"
+        }
+      }
+    },
+    "test/router/services/my-service": {
+      "name": "test/router/services/my-service",
+      "version": "a09e13b7a65523ad38bcfecff36fa083",
+      "size": 2030,
+      "hash": "b4bca662d8b2130010a8fca0376f7eb4",
+      "files": {
+        ".ts": {
+          "size": 395,
+          "hash": "a09e13b7a65523ad38bcfecff36fa083",
+          "sha": "0134138d7d4fd34b759a8c7bef541f2d35d400de"
+        },
+        ".js.map": {
+          "size": 1036,
+          "hash": "ff95389b9ae3f8ffadb8cd84bc77b6c1"
+        },
+        ".js": {
+          "size": 2030,
+          "hash": "b4bca662d8b2130010a8fca0376f7eb4"
+        },
+        ".d.ts": {
+          "size": 127,
+          "hash": "12967c1de0513fb6dc261b63a28ce963"
+        }
+      }
+    },
+    "test/sample/api/provider": {
+      "name": "test/sample/api/provider",
+      "version": "283530011a38bf6242427a22eac22f42",
+      "size": 2470,
+      "hash": "911e539c442f0d4bc90fd8c28de5761a",
+      "files": {
+        ".ts": {
+          "size": 620,
+          "hash": "283530011a38bf6242427a22eac22f42",
+          "sha": "c72915ca07281903ad7c4299da543340cf37d0fd"
+        },
+        ".js.map": {
+          "size": 1604,
+          "hash": "384294bd03a00e2e5f13546cca331363"
+        },
+        ".js": {
+          "size": 2470,
+          "hash": "911e539c442f0d4bc90fd8c28de5761a"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/sample/api/service": {
+      "name": "test/sample/api/service",
+      "version": "c1f7a8c43e6e2c0c7dd86931ecff6e3f",
+      "size": 3112,
+      "hash": "a145cdb10dfac134e01cf6d6d50aedb1",
+      "files": {
+        ".ts": {
+          "size": 498,
+          "hash": "c1f7a8c43e6e2c0c7dd86931ecff6e3f",
+          "sha": "74b90dadb117c9dcce5f0d769b0c7f384433553d"
+        },
+        ".js.map": {
+          "size": 1707,
+          "hash": "97eb3b67634ecc9d01c18ad736724804"
+        },
+        ".js": {
+          "size": 3112,
+          "hash": "a145cdb10dfac134e01cf6d6d50aedb1"
+        },
+        ".d.ts": {
+          "size": 249,
+          "hash": "ef5506113cf76eb12393d55014c18b29"
+        }
+      }
+    },
+    "test/sample/assets/app": {
+      "name": "test/sample/assets/app",
+      "files": {
+        ".css": {
+          "size": 1484,
+          "hash": "a7ece7cc14bedbc11f3362aa820f30e5",
+          "sha": "9fbec26932feae8613c9f1ced90015bddffc8f7c"
+        }
+      }
+    },
+    "test/sample/assets/material": {
+      "name": "test/sample/assets/material",
+      "files": {
+        ".css": {
+          "size": 428981,
+          "hash": "46af97d920a21fe0ed5320a93fdb3bf8",
+          "sha": "97d54861bd119a2ebc94065f5762647f7a2e2726"
+        }
+      }
+    },
+    "test/sample/assets/svg/avatar-1": {
+      "name": "test/sample/assets/svg/avatar-1",
+      "files": {
+        ".svg": {
+          "size": 1828,
+          "hash": "32e5f271f0902e53814c8220b08533ae",
+          "sha": "0b4a4ec5fe9ca2a9a9d4e94bda5da67eb211d724"
+        }
+      }
+    },
+    "test/sample/assets/svg/avatar-4": {
+      "name": "test/sample/assets/svg/avatar-4",
+      "files": {
+        ".svg": {
+          "size": 2038,
+          "hash": "670f48fbbcd9b0a853373ce66a4c86b9",
+          "sha": "0c985628ec93aeb2708492f9697080c0dd667f45"
+        }
+      }
+    },
+    "test/sample/assets/svg/avatars": {
+      "name": "test/sample/assets/svg/avatars",
+      "files": {
+        ".svg": {
+          "size": 36728,
+          "hash": "e6a0e8a8f55852cf18b789f4935b2602",
+          "sha": "f5e111f76cfb5faf05f42475f33a1aec5ed93b72"
+        }
+      }
+    },
+    "test/sample/assets/svg/google_plus": {
+      "name": "test/sample/assets/svg/google_plus",
+      "files": {
+        ".svg": {
+          "size": 1923,
+          "hash": "d3efbf8dc5b4dc75bc69f5e069f50aa7",
+          "sha": "9dc3ab15511008271fad318c9a97159b80c8433d"
+        }
+      }
+    },
+    "test/sample/assets/svg/hangouts": {
+      "name": "test/sample/assets/svg/hangouts",
+      "files": {
+        ".svg": {
+          "size": 2515,
+          "hash": "8cab4b8264d9e38b24aef5e2e217ef68",
+          "sha": "692345e78cb271907ab86b0788e86cec13e0f207"
+        }
+      }
+    },
+    "test/sample/assets/svg/mail": {
+      "name": "test/sample/assets/svg/mail",
+      "files": {
+        ".svg": {
+          "size": 2486,
+          "hash": "3d721cbb73bbe8f4164937301b233421",
+          "sha": "cdf80a8c6d44a9c994c8507594dd3abfc565ee01"
+        }
+      }
+    },
+    "test/sample/assets/svg/menu": {
+      "name": "test/sample/assets/svg/menu",
+      "files": {
+        ".svg": {
+          "size": 208,
+          "hash": "096ad853d6db966692c26d4b073b866e",
+          "sha": "3dda0b1b1d18682eae66c5e207bc7e5f964f8f17"
+        }
+      }
+    },
+    "test/sample/assets/svg/phone": {
+      "name": "test/sample/assets/svg/phone",
+      "files": {
+        ".svg": {
+          "size": 2103,
+          "hash": "30cb8d383b49bd642a90012fe5430b9c",
+          "sha": "91931659dee9cb9d1e00f2998473a0d3c69f8fe9"
+        }
+      }
+    },
+    "test/sample/assets/svg/share": {
+      "name": "test/sample/assets/svg/share",
+      "files": {
+        ".svg": {
+          "size": 143,
+          "hash": "1605e08a4a7dfa23de42e50f5a203397",
+          "sha": "633c374777b3cf81eb48c2a1ed4419f92cbe5cbc"
+        }
+      }
+    },
+    "test/sample/assets/svg/twitter": {
+      "name": "test/sample/assets/svg/twitter",
+      "files": {
+        ".svg": {
+          "size": 1353,
+          "hash": "9d6a9205f3e920be06ddc47358ccb9c3",
+          "sha": "c6cea93b2c6666405e76c465140c2253cb07d0a8"
+        }
+      }
+    },
+    "test/sample/index": {
+      "name": "test/sample/index",
+      "version": "06bd282217196eda1685f8d73010b02b",
+      "size": 3053,
+      "hash": "ec69622e53e169f3d6194dc0cc4c4ad5",
+      "files": {
+        ".html": {
+          "size": 2213,
+          "hash": "144feb202df513a70311fb5b73fbeea7",
+          "sha": "9159c8cc0783775f73dcd6b08d22c2aa6772dc1b"
+        },
+        ".ts": {
+          "size": 948,
+          "hash": "06bd282217196eda1685f8d73010b02b",
+          "sha": "1692704e17e1e6822b28b5e4aec8bef79a4276ad"
+        },
+        ".js.map": {
+          "size": 2056,
+          "hash": "7f5a61031b2010c4fff6f1caf07fb136"
+        },
+        ".js": {
+          "size": 3053,
+          "hash": "ec69622e53e169f3d6194dc0cc4c4ad5"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/sample/user/controller": {
+      "name": "test/sample/user/controller",
+      "version": "f0f596c1757c593d605a7602f4a48e91",
+      "size": 5099,
+      "hash": "7f9e3cb5af5197d0c8d2ee8a4118c4e8",
+      "files": {
+        ".ts": {
+          "size": 2447,
+          "hash": "f0f596c1757c593d605a7602f4a48e91",
+          "sha": "dd2c8cc2a9f6e79e361eb63af3193d392dda734f"
+        },
+        ".js.map": {
+          "size": 4789,
+          "hash": "efeec813e278f07262707b05e34bb92c"
+        },
+        ".js": {
+          "size": 5099,
+          "hash": "7f9e3cb5af5197d0c8d2ee8a4118c4e8"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/sample/user/service": {
+      "name": "test/sample/user/service",
+      "version": "068d1424b740f0feb15dd025b5fbde50",
+      "size": 5167,
+      "hash": "f789ba16d0d804905600aab146206c25",
+      "files": {
+        ".ts": {
+          "size": 3064,
+          "hash": "068d1424b740f0feb15dd025b5fbde50",
+          "sha": "ddbcfa4927ee85a858a6d5a9395c52f854f832f7"
+        },
+        ".js.map": {
+          "size": 4490,
+          "hash": "6285b50a0dc263c5591c14a008acbd2b"
+        },
+        ".js": {
+          "size": 5167,
+          "hash": "f789ba16d0d804905600aab146206c25"
+        },
+        ".d.ts": {
+          "size": 211,
+          "hash": "ff81b621c9301f5f5a8cb3803652a5d9"
+        }
+      }
+    },
+    "test/simple/api/controller": {
+      "name": "test/simple/api/controller",
+      "version": "9658f32e10dc704355344b0701587686",
+      "size": 2899,
+      "hash": "9f6c2b8e5b4b4f2162a4faecab02cc18",
+      "files": {
+        ".ts": {
+          "size": 657,
+          "hash": "9658f32e10dc704355344b0701587686",
+          "sha": "c58ae1d65c4e78b60eae4217b8ec6d3790504fa1"
+        },
+        ".js.map": {
+          "size": 1724,
+          "hash": "3c728dc9dc7e607d591237a304438086"
+        },
+        ".js": {
+          "size": 2899,
+          "hash": "9f6c2b8e5b4b4f2162a4faecab02cc18"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/simple/api/provider": {
+      "name": "test/simple/api/provider",
+      "version": "53e1060561dcc847d3a528df2643e557",
+      "size": 2711,
+      "hash": "d4bb65b5e4868a77901e95f34546bfcb",
+      "files": {
+        ".ts": {
+          "size": 687,
+          "hash": "53e1060561dcc847d3a528df2643e557",
+          "sha": "1854aae68918bfe930449fac5724edf2237af869"
+        },
+        ".js.map": {
+          "size": 1723,
+          "hash": "2516577f69a264b3de93cf8a9d8c5e0b"
+        },
+        ".js": {
+          "size": 2711,
+          "hash": "d4bb65b5e4868a77901e95f34546bfcb"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/simple/api/service": {
+      "name": "test/simple/api/service",
+      "version": "44ee7c892fb92d33ebfa15dc31e344af",
+      "size": 3076,
+      "hash": "e1fc615938a4d3fc53ce2a7e64eeb4db",
+      "files": {
+        ".ts": {
+          "size": 488,
+          "hash": "44ee7c892fb92d33ebfa15dc31e344af",
+          "sha": "7031eb26e8105a75064b5ef1cee3840accc72a1f"
+        },
+        ".js.map": {
+          "size": 1687,
+          "hash": "294b18917a41b21651c5d18f7b19ae36"
+        },
+        ".js": {
+          "size": 3076,
+          "hash": "e1fc615938a4d3fc53ce2a7e64eeb4db"
+        },
+        ".d.ts": {
+          "size": 237,
+          "hash": "8ba4d984cfcfc7c8fd5baaa1bd60c801"
+        }
+      }
+    },
+    "test/simple/index": {
+      "name": "test/simple/index",
+      "version": "69f896d4a607ebfb71a88b2fb20425f6",
+      "size": 2207,
+      "hash": "89d8c13df9180a12dbff82bfc54c8542",
+      "files": {
+        ".html": {
+          "size": 508,
+          "hash": "68621fa004987588d58812f4ad7994b8",
+          "sha": "90e3f77c027d19aff64cfe41b7a0f1e06f6684b4"
+        },
+        ".ts": {
+          "size": 383,
+          "hash": "69f896d4a607ebfb71a88b2fb20425f6",
+          "sha": "8e1d0f92a218eb58f3aa67a176245c72ec98ff94"
+        },
+        ".js.map": {
+          "size": 1048,
+          "hash": "e1ecba24837fc1df360cd96faa78769d"
+        },
+        ".js": {
+          "size": 2207,
+          "hash": "89d8c13df9180a12dbff82bfc54c8542"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/table/index": {
+      "name": "test/table/index",
+      "version": "72deb42a04acfd40b23c7bf851a34889",
+      "size": 2330,
+      "hash": "de28622859160f46606b992ccd45f694",
+      "files": {
+        ".html": {
+          "size": 1052,
+          "hash": "8fb9a21e41b445911853b3b384564ec9",
+          "sha": "caf6df934c955e614a5e28477266619e40b0f928"
+        },
+        ".ts": {
+          "size": 462,
+          "hash": "72deb42a04acfd40b23c7bf851a34889",
+          "sha": "e2e852f12cdfaef39208bb52de5d67b66426484f"
+        },
+        ".js.map": {
+          "size": 1134,
+          "hash": "c9d6771910ebe826c6a92f04a33a3312"
+        },
+        ".js": {
+          "size": 2330,
+          "hash": "de28622859160f46606b992ccd45f694"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/table/scripts/controller": {
+      "name": "test/table/scripts/controller",
+      "version": "521bfed1813c02b2888c33d99592e067",
+      "size": 6171,
+      "hash": "11dca0b5ccd314bba06f7ed25f3b5307",
+      "files": {
+        ".ts": {
+          "size": 2816,
+          "hash": "521bfed1813c02b2888c33d99592e067",
+          "sha": "ee583d9d6848b5e9590f28016a5d957205bed4e9"
+        },
+        ".js.map": {
+          "size": 6902,
+          "hash": "8d4565ef4256fe43415ef8585a65a446"
+        },
+        ".js": {
+          "size": 6171,
+          "hash": "11dca0b5ccd314bba06f7ed25f3b5307"
+        },
+        ".d.ts": {
+          "size": 0,
+          "hash": "d41d8cd98f00b204e9800998ecf8427e"
+        }
+      }
+    },
+    "test/table/scripts/desserts": {
+      "name": "test/table/scripts/desserts",
+      "version": "c0e302cd1fca54439aed0efcb5f1bb9c",
+      "size": 189310,
+      "hash": "dd0617e36d63d5461c5d6faeaae835d5",
+      "files": {
+        ".ts": {
+          "size": 119063,
+          "hash": "c0e302cd1fca54439aed0efcb5f1bb9c",
+          "sha": "59e3c95dd81a1888c1dd63464a6c28895586af0c"
+        },
+        ".js.map": {
+          "size": 229781,
+          "hash": "5ef505f210e6f45604c11e844cf0ed84"
+        },
+        ".js": {
+          "size": 189310,
+          "hash": "dd0617e36d63d5461c5d6faeaae835d5"
+        },
+        ".d.ts": {
+          "size": 6361,
+          "hash": "0cd63c3c2743edda0880aface850e969"
+        }
+      }
+    },
+    "test/table/scripts/template": {
+      "name": "test/table/scripts/template",
+      "version": "24f35650c0e03a4af43d6b640331fffa",
+      "size": 901,
+      "hash": "ce3c80e1961f174b409c86f26daf5de9",
+      "files": {
+        ".ts": {
+          "size": 271,
+          "hash": "24f35650c0e03a4af43d6b640331fffa",
+          "sha": "e4b38f20521d13e0543f74cc7780ab07a54dbfd0"
+        },
+        ".js.map": {
+          "size": 576,
+          "hash": "e50739902567d58e2ef90a51f559f50c"
+        },
+        ".js": {
+          "size": 901,
+          "hash": "ce3c80e1961f174b409c86f26daf5de9"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/table/scripts/template/content": {
+      "name": "test/table/scripts/template/content",
+      "version": "e6ff313365b9ee3f22cf312a62279e5f",
+      "size": 2443,
+      "hash": "ce00a9564096827287a1782551e8a21f",
+      "files": {
+        ".ts": {
+          "size": 2181,
+          "hash": "e6ff313365b9ee3f22cf312a62279e5f",
+          "sha": "9235e917f0ae0e4cc56440f97651129e5bca6e23"
+        },
+        ".js.map": {
+          "size": 2494,
+          "hash": "52f3fdcee39fbdfcd5f1db1462b43372"
+        },
+        ".js": {
+          "size": 2443,
+          "hash": "ce00a9564096827287a1782551e8a21f"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/table/scripts/template/main-header": {
+      "name": "test/table/scripts/template/main-header",
+      "version": "18fa1ad13fa31b1789be5af6e8ddacf5",
+      "size": 1043,
+      "hash": "74236571d9e46720ec560cf69317c170",
+      "files": {
+        ".ts": {
+          "size": 826,
+          "hash": "18fa1ad13fa31b1789be5af6e8ddacf5",
+          "sha": "8ea478395fe00f6a4899a9f18d37a6da7d7ffc0a"
+        },
+        ".js.map": {
+          "size": 1100,
+          "hash": "284c902854efe3083824303053994078"
+        },
+        ".js": {
+          "size": 1043,
+          "hash": "74236571d9e46720ec560cf69317c170"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/table/scripts/template/paginator": {
+      "name": "test/table/scripts/template/paginator",
+      "version": "08a58cd06d5ebcacff7f94400d1dfb04",
+      "size": 402,
+      "hash": "ff10c63dab2be5e2ebff70c3e48adf5b",
+      "files": {
+        ".ts": {
+          "size": 211,
+          "hash": "08a58cd06d5ebcacff7f94400d1dfb04",
+          "sha": "c29a919485585c77df55b47a0ca2f50a88261005"
+        },
+        ".js.map": {
+          "size": 455,
+          "hash": "b5f9ca7f34fb55bc0a70e8a155cb6fac"
+        },
+        ".js": {
+          "size": 402,
+          "hash": "ff10c63dab2be5e2ebff70c3e48adf5b"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    },
+    "test/table/scripts/template/selected-header": {
+      "name": "test/table/scripts/template/selected-header",
+      "version": "a9d8122f1855c71a3356720dff58be20",
+      "size": 668,
+      "hash": "3404c98b0441ca50ca72dadc51cf9c0c",
+      "files": {
+        ".ts": {
+          "size": 458,
+          "hash": "a9d8122f1855c71a3356720dff58be20",
+          "sha": "c7e35b74603fdff29839f1f44fa8b01d2d737984"
+        },
+        ".js.map": {
+          "size": 725,
+          "hash": "b87d812a1b7819d6db3f4ef56bbf529d"
+        },
+        ".js": {
+          "size": 668,
+          "hash": "3404c98b0441ca50ca72dadc51cf9c0c"
+        },
+        ".d.ts": {
+          "size": 55,
+          "hash": "10e23ee419ce5c773587d549e87130fa"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "file": "logIn.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "logIn.ts"
+  ],
+  "names": [
+    "LogIn",
+    "LogIn.constructor",
+    "LogIn.submit"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;YAMA;gBAeIA;oBACIC,OAAOA,CAACA,IAAIA,CAACA,4BAA4BA,CAACA,CAACA;oBAC3CA,OAAOA,CAACA,GAAGA,CAACA,IAAIA,CAACA,eAAeA,CAACA,CAACA;oBAClCA,IAAIA,CAACA,MAAMA,GAAGA,IAAIA,CAACA,MAAMA,CAACA,IAAIA,CAACA,IAAIA,CAACA,CAACA;gBAEzCA,CAACA;gBAEDD,sBAAMA,GAANA;oBAAAE,iBAYCA;oBAXGA,IAAIA,CAACA,eAAeA,CAACA,oBAAoBA,CAACA,IAAIA,CAACA,QAAQA,EAACA,IAAIA,CAACA,QAAQA,CAACA,CAACA,IAAIA,CAACA,UAACA,KAAKA;wBAC9EA,EAAEA,CAAAA,CAACA,KAAKA,CAACA,CAAAA,CAACA;4BACNA,KAAIA,CAACA,eAAeA,CAACA,cAAcA,CAACA,KAAIA,CAACA,QAAQA,EAACA,KAAIA,CAACA,QAAQA,CAACA,CAACA;4BACjEA,OAAOA,CAACA,GAAGA,CAACA,WAAWA,EAACA,KAAIA,CAACA,SAASA,CAACA,CAACA;4BACxCA,KAAIA,CAACA,SAASA,CAACA,IAAIA,CAACA,YAAYA,CAACA,CAACA;4BAClCA,MAAMA,CAACA;wBACXA,CAACA;wBACDA,KAAKA,CAACA,gBAAgBA,CAACA,CAACA;oBAC5BA,CAACA,CAACA,CAACA,KAAKA,CAACA,UAACA,CAACA;wBACPA,OAAOA,CAACA,KAAKA,CAACA,CAACA,CAACA,CAACA;oBACrBA,CAACA,CAACA,CAACA;gBACPA,CAACA;gBA7BDF;oBAACA,iBAAMA;;mBACCA,kCAAeA,UAAOA;gBAC9BA;oBAACA,iBAAMA;;mBACCA,4BAASA,UAAKA;gBACtBA;oBAACA,iBAAMA;;mBACCA,6BAAUA,UAAKA;gBAV3BA;oBAACA,oBAASA,CAACA,SAASA,EAACA;wBACjBA,QAAQA,EAAMA,eAAaA;qBAC9BA,CAACA;;0BAiCDA;gBAADA,YAACA;YAADA,CAACA,AAnCD,IAmCC",
+  "sourcesContent": [
+    "import {Component,Inject} from \"mangular/annotate\";\nimport LogInTemplate from '../template/pages/logIn'\n\nimport {Auth} from \"../services/auth\";\n\n\n@Component('wcLogin',{\n    template    : LogInTemplate\n})\nclass LogIn{\n\n    @Inject\n    private userAuthService :Auth;\n    @Inject\n    private $location:any;\n    @Inject\n    private $rootScope:any;\n\n\n    private username:string;\n    private password:string;\n    constructor(){\n        console.info(\"LogInComponent constructor\");\n        console.log(this.userAuthService);\n        this.submit = this.submit.bind(this);\n\n    }\n\n    submit(){\n        this.userAuthService.checkUserCredentials(this.username,this.password).then((exist)=>{\n            if(exist){\n                this.userAuthService.setCredentials(this.username,this.password);\n                console.log(\"$location\",this.$location);\n                this.$location.path('/dashboard');\n                return;\n            }\n            alert(\"Wrong Password\");\n        }).catch((e)=>{\n            console.error(e);\n        });\n    }\n}"
+  ]
+}

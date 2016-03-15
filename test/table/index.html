@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Nutrition</title>
+
+    <script src="../../out/runtime/package.js" main></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
+    <style>
+      md-toolbar.md-table-toolbar.ng-hide {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <div class="md-title">Material Design Data Table</div>
+      </div>
+    </md-toolbar>
+
+    <md-content laout="column" flex>
+
+        <mb-Nutron laout="column" layout-align="space-between stretch"></mb-Nutron>
+
+    </md-content>
+
+    <script>
+      System.import('mangular/table/index').catch(function(e){
+        console.error(e);
+      })
+    </script>
+    
+  </body>
+</html>

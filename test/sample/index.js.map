@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "index.ts"
+  ],
+  "names": [
+    "MyApp",
+    "MyApp.constructor",
+    "MyApp.testConfig"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;YAaA;gBAAAA;gBAmBAC,CAACA;gBAhBWD,0BAAUA,GAAlBA,UACmCA,aAAiBA,EAClBA,WAAeA,EACfA,kBAAsBA,EACzBA,eAAmBA;oBAE9CE,OAAOA,CAACA,IAAIA,CAACA,aAAaA,CAACA,CAACA;oBAC5BA,OAAOA,CAACA,IAAIA,CAACA,WAAWA,CAACA,CAACA;oBAC1BA,WAAWA,CAACA,UAAUA,CAACA,KAAKA,CAACA,CAACA;oBAC9BA,eAAeA;yBACVA,cAAcA,CAACA,wBAAwBA,EAAEA,GAAGA,CAACA,CAACA;oBACnDA,kBAAkBA,CAACA,KAAKA,CAACA,SAASA,CAACA;yBAC9BA,cAAcA,CAACA,MAAMA,CAACA;yBACtBA,aAAaA,CAACA,KAAKA,CAACA,CAACA;gBAC9BA,CAACA;gBAdDF;oBAACA,iBAAMA;oBACHA,WAACA,iBAAMA,CAACA,qBAAqBA,CAACA,CAAAA;oBAC9BA,WAACA,iBAAMA,CAACA,oBAAoBA,CAACA,CAAAA;oBAC7BA,WAACA,iBAAMA,CAACA,oBAAoBA,CAACA,CAAAA;oBAC7BA,WAACA,iBAAMA,CAACA,iBAAiBA,CAACA,CAAAA;;;;mBAJtBA,6BAAUA,QAcjBA;gBAELA,YAACA;YAADA,CAACA,AAnBD,IAmBC;YAED,kBAAO,CAAC,KAAK,CAAC,uBAAuB,CAAC,CAAC",
+  "sourcesContent": [
+    "import Angular from \"mangular/annotate\";\nimport {Config} from \"mangular/annotate\";\nimport {Inject} from \"mangular/annotate\";\n\nimport \"mangular/angular/animate\";\nimport \"mangular/angular/aria\";\nimport \"mangular/angular/material\";\n\nimport \"./api/provider\";\nimport \"./user/controller\";\nimport \"./user/service\";\n\n\nclass MyApp {\n\n\n    @Config testConfig(\n        @Inject('UserServiceProvider') usersProvider:any,\n        @Inject('ApiServiceProvider') apiProvider:any,\n        @Inject('$mdThemingProvider') $mdThemingProvider:any,\n        @Inject('$mdIconProvider') $mdIconProvider:any\n    ){\n        console.info(usersProvider);\n        console.info(apiProvider);\n        apiProvider.setService('one');\n        $mdIconProvider\n            .defaultIconSet(\"assets/svg/avatars.svg\", 128);\n        $mdThemingProvider.theme('default')\n            .primaryPalette('blue')\n            .accentPalette('red');\n    }\n\n}\n\nAngular.start('mangular/sample/index');\n\n"
+  ]
+}

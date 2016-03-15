@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "file": "auth.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "auth.ts"
+  ],
+  "names": [
+    "Auth",
+    "Auth.constructor",
+    "Auth.checkUserCredentials",
+    "Auth.setToLocalStorage",
+    "Auth.clearLocalStorage",
+    "Auth.getFromLocalStorage",
+    "Auth.clearCredentials",
+    "Auth.setCredentials"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;YAEA;gBAMIA,cAAYA,KAAKA,EAACA,EAAEA,EAACA,UAAUA;gBAE/BC,CAACA;gBAEDD,mCAAoBA,GAApBA,UAAuBA,QAAQA,EAAGA,QAAQA;oBACtCE,MAAMA,CAACA,IAAIA,OAAOA,CAACA,UAAEA,OAAOA,EAAGA,MAAMA;wBACjCA,IAAGA,CAACA;4BACAA,UAAUA,CAACA;gCACPA,IAAIA,KAAKA,GAAGA,KAAKA,CAACA;gCAClBA,EAAEA,CAAAA,CAAEA,QAAQA,IAAIA,OAAOA,IAAIA,QAAQA,IAAIA,OAAQA,CAACA,CAAAA,CAACA;oCAC7CA,KAAKA,GAAGA,IAAIA,CAACA;gCACjBA,CAACA;gCACDA,OAAOA,CAACA,KAAKA,CAACA,CAACA;4BACnBA,CAACA,EAACA,CAACA,CAACA,CAACA;wBACTA,CAACA;wBAAAA,KAAKA,CAAAA,CAACA,CAACA,CAACA,CAAAA,CAACA;4BACNA,MAAMA,EAAEA,CAACA;wBACbA,CAACA;oBACLA,CAACA,CAACA,CAAAA;gBACNA,CAACA;gBAEDF,gCAAiBA,GAAjBA,UAAkBA,GAAUA,EAACA,GAAUA;oBACnCG,YAAYA,CAACA,OAAOA,CAACA,GAAGA,EAACA,IAAIA,CAACA,SAASA,CAACA,GAAGA,CAACA,CAACA,CAACA;gBAClDA,CAACA;gBAEDH,gCAAiBA,GAAjBA,UAAkBA,GAAUA;oBACxBI,YAAYA,CAACA,UAAUA,CAACA,GAAGA,CAACA,CAACA;gBACjCA,CAACA;gBACDJ,kCAAmBA,GAAnBA,UAAoBA,GAAUA;oBAC1BK,MAAMA,CAACA,IAAIA,CAACA,KAAKA,CAACA,YAAYA,CAACA,OAAOA,CAACA,GAAGA,CAACA,CAACA,CAACA;gBACjDA,CAACA;gBAEDL,+BAAgBA,GAAhBA;oBACIM,IAAIA,CAACA,UAAUA,CAACA,OAAOA,GAAGA,EAAEA,CAACA;oBAC7BA,IAAIA,CAACA,iBAAiBA,CAACA,SAASA,CAACA,CAACA;gBACtCA,CAACA;gBAEDN,6BAAcA,GAAdA,UAAgBA,QAAQA,EAACA,QAAQA;oBAC7BO,IAAIA,CAACA,UAAUA,CAACA,OAAOA,GAAGA;wBACtBA,WAAWA,EAAGA;4BACVA,QAAQA,EAAGA,QAAQA;4BACnBA,QAAQA,EAAGA,QAAQA;yBACtBA;qBACJA,CAACA;oBACFA,IAAIA,CAACA,iBAAiBA,CAACA,SAASA,EAACA,IAAIA,CAACA,UAAUA,CAACA,OAAOA,CAACA,CAACA;gBAC9DA,CAACA;gBA/CDP;oBAACA,iBAAMA;;mBAACA,4BAAUA,UAACA;gBAHvBA;oBAACA,kBAAOA;;yBAmDPA;gBAADA,WAACA;YAADA,CAACA,AAnDD,IAmDC;YAnDD,uBAmDC,CAAA",
+  "sourcesContent": [
+    "import {Service,Inject} from \"mangular/annotate\";\n\n@Service\nexport class Auth{\n\n    @Inject $rootScope;\n    private rootScope:any;\n\n    constructor($http,$q,$rootScope){\n\n    }\n\n    checkUserCredentials ( username , password ){\n        return new Promise(( resolve , reject )=>{\n            try{\n                setTimeout(()=>{\n                    let exist = false;\n                    if( username == 'admin' && password == 'admin' ){\n                        exist = true;\n                    }\n                    resolve(exist);\n                },0);\n            }catch(e){\n                reject();\n            }\n        })\n    }\n\n    setToLocalStorage(key:string,val:Object){\n        localStorage.setItem(key,JSON.stringify(val));\n    }\n\n    clearLocalStorage(key:string){\n        localStorage.removeItem(key);\n    }\n    getFromLocalStorage(key:string){\n        return JSON.parse(localStorage.getItem(key));\n    }\n\n    clearCredentials () {\n        this.$rootScope.globals = {};\n        this.clearLocalStorage('globals');\n    }\n\n    setCredentials (username,password) {\n        this.$rootScope.globals = {\n            currentUser : {\n                username : username,\n                password : password\n            }\n        };\n        this.setToLocalStorage('globals',this.$rootScope.globals);\n    }\n}\n"
+  ]
+}

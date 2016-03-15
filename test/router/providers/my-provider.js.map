@@ -1,0 +1,23 @@
+{
+  "version": 3,
+  "file": "my-provider.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "my-provider.ts"
+  ],
+  "names": [
+    "HttpService",
+    "HttpService.constructor",
+    "HttpServiceProvider",
+    "HttpServiceProvider.constructor",
+    "HttpServiceProvider.provide",
+    "HttpServiceProvider.defaults",
+    "HttpServiceProvider.interceptors",
+    "HttpServiceProvider.useApplyAsync",
+    "HttpServiceProvider.useLegacyPromiseExtensions"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;YAIA;gBAEIA,qBAAYA,IAAIA;oBACZC,IAAIA,CAACA,IAAIA,GAAGA,IAAIA,CAACA;gBACrBA,CAACA;gBACLD,kBAACA;YAADA,CAACA,AALD,IAKC;YALD,qCAKC,CAAA;YAUD;gBAAAE;gBA+BAC,CAACA;gBAzBaD,qCAAOA,GAAjBA,UAA0BA,KAAKA;oBAC3BE,MAAMA,CAACA,IAAIA,WAAWA,CAACA,KAAKA,CAACA,CAACA;gBAClCA,CAACA;gBAEDF,sBAAWA,yCAAQA;yBAAnBA;wBACIG,MAAMA,CAACA,IAAIA,CAACA,QAAQA,CAACA,QAAQA,CAACA;oBAClCA,CAACA;yBACDH,UAAoBA,CAAqBA;wBACrCG,IAAIA,CAACA,QAAQA,CAACA,QAAQA,GAAGA,CAACA,CAACA;oBAC/BA,CAACA;;;mBAHAH;gBAKDA,sBAAWA,6CAAYA;yBAAvBA;wBACII,MAAMA,CAACA,IAAIA,CAACA,QAAQA,CAACA,YAAYA,CAACA;oBACtCA,CAACA;yBACDJ,UAAwBA,CAAUA;wBAC9BI,IAAIA,CAACA,QAAQA,CAACA,YAAYA,GAAGA,CAACA,CAACA;oBACnCA,CAACA;;;mBAHAJ;gBAKMA,2CAAaA,GAApBA,UAAqBA,KAAcA;oBAC/BK,MAAMA,CAACA,IAAIA,CAACA,QAAQA,CAACA,aAAaA,CAACA,KAAKA,CAACA,CAACA;gBAC9CA,CAACA;gBACML,wDAA0BA,GAAjCA,UAAkCA,KAAcA;oBAC5CM,MAAMA,CAACA,IAAIA,CAACA,QAAQA,CAACA,0BAA0BA,CAACA,KAAKA,CAACA,CAACA;gBAC3DA,CAACA;gBA1BDN;oBAACA,iBAAMA,CAACA,eAAeA,CAACA;;mBAChBA,yCAAQA,UAAKA;gBAErBA;oBAAkBA,WAACA,iBAAMA,CAAAA;;;;mBAAfA,wCAAOA,QAEhBA;gBARLA;oBAACA,mBAAQA,CAACA,aAAaA,CAACA;;wCA+BvBA;gBAADA,0BAACA;YAADA,CAACA,AA/BD,IA+BC;YA/BD,qDA+BC,CAAA",
+  "sourcesContent": [
+    "import {Provider} from \"mangular/annotate\";\nimport {Inject} from \"mangular/annotate\";\n\n\nexport class HttpService {\n    private http:any;\n    constructor(http){\n        this.http = http;\n    }\n}\n\nexport interface HttpServiceDefaults{\n    cache           :any;\n    xsrfCookieName  :string;\n    xsrfHeaderName  :string;\n    headers         :string;\n    paramSerializer :string|Function;\n}\n\n@Provider('HttpService')\nexport class HttpServiceProvider {\n\n    @Inject('$httpProvider')\n    private provider:any;\n\n    protected provide(@Inject $http){\n        return new HttpService($http);\n    }\n\n    public get defaults():HttpServiceDefaults{\n        return this.provider.defaults;\n    }\n    public set defaults(v:HttpServiceDefaults){\n        this.provider.defaults = v;\n    }\n\n    public get interceptors():string[]{\n        return this.provider.interceptors;\n    }\n    public set interceptors(v:string[]){\n        this.provider.interceptors = v;\n    }\n\n    public useApplyAsync(value?:boolean){\n        return this.provider.useApplyAsync(value);\n    }\n    public useLegacyPromiseExtensions(value?:boolean){\n        return this.provider.useLegacyPromiseExtensions(value);\n    }\n\n}"
+  ]
+}

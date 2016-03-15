@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "file": "privateLayout.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "privateLayout.ts"
+  ],
+  "names": [
+    "PrivateLayoutComponent",
+    "PrivateLayoutComponent.constructor",
+    "PrivateLayoutComponent.toggleList",
+    "PrivateLayoutComponent.isOpen",
+    "PrivateLayoutComponent.toggleOpen",
+    "PrivateLayoutComponent.getMenuSection",
+    "PrivateLayoutComponent.focusSection"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;YAIA;gBASIA,gCAA4BA,IAAIA,EAAuBA,UAAUA,EAAwBA,IAAIA;oBACzFC,IAAIA,CAACA,IAAIA,GAAGA,IAAIA,CAACA;oBACjBA,IAAIA,CAACA,IAAIA,GAAGA,IAAIA,CAACA;oBACjBA,IAAIA,CAACA,UAAUA,GAAGA,UAAUA,CAACA;gBACjCA,CAACA;gBAEDD,2CAAUA,GAAVA;oBACIE,IAAIA,CAACA,UAAUA,CAACA,MAAMA,CAACA,CAACA,MAAMA,EAAEA,CAACA;gBACrCA,CAACA;gBAEDF,uCAAMA,GAANA,UAAQA,OAAOA;oBACXG,MAAMA,CAACA,IAAIA,CAACA,IAAIA,CAACA,iBAAiBA,CAACA,OAAOA,CAACA,CAACA;gBAChDA,CAACA;gBACDH,2CAAUA,GAAVA,UAAYA,OAAOA;oBACfI,IAAIA,CAACA,IAAIA,CAACA,mBAAmBA,CAACA,OAAOA,CAACA,CAACA;gBAC3CA,CAACA;gBAEDJ,+CAAcA,GAAdA;oBACIK,MAAMA,CAACA,IAAIA,CAACA,IAAIA,CAACA,QAAQA,CAACA;gBAC9BA,CAACA;gBACDL,6CAAYA,GAAZA;gBACAM,CAACA;gBA9BLN;oBAACA,oBAASA,CAACA,iBAAiBA,EAACA;wBACzBA,QAAQA,EAAMA,uBAAqBA;qBACtCA,CAACA;oBAOcA,WAACA,iBAAMA,CAACA,MAAMA,CAACA,CAAAA;oBAAMA,WAACA,iBAAMA,CAACA,YAAYA,CAACA,CAAAA;oBAAaA,WAACA,iBAAMA,CAACA,YAAYA,CAACA,CAAAA;;2CAsB3FA;gBAADA,6BAACA;YAADA,CAACA,AA/BD,IA+BC",
+  "sourcesContent": [
+    "import {Component,Inject} from \"mangular/annotate\";\nimport PrivateLayoutTemplate from \"../template/layouts/privateLayout\";\nimport {Menu} from \"../services/menu\";\n\n@Component('wcPrivateLayout',{\n    template    : PrivateLayoutTemplate,\n})\nclass PrivateLayoutComponent {\n\n    private $mdSidenav:any;\n    private menu:Menu;\n    private root:any;\n\n    constructor(@Inject('Menu') menu,@Inject('$mdSidenav') $mdSidenav, @Inject('$rootScope') root){\n        this.menu = menu;\n        this.root = root;\n        this.$mdSidenav = $mdSidenav;\n    }\n\n    toggleList(){\n        this.$mdSidenav('left').toggle();\n    }\n\n    isOpen (section) {\n        return this.menu.isSectionSelected(section);\n    }\n    toggleOpen (section) {\n        this.menu.toggleSelectSection(section);\n    }\n\n    getMenuSection(){\n        return this.menu.sections;\n    }\n    focusSection(){\n    }\n}\n"
+  ]
+}

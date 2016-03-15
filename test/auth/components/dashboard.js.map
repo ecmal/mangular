@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "dashboard.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "dashboard.ts"
+  ],
+  "names": [
+    "DashboardComponent",
+    "DashboardComponent.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;YAGA;gBAIIA;oBACIC,OAAOA,CAACA,IAAIA,CAACA,gCAAgCA,CAACA,CAACA;gBACnDA,CAACA;gBANLD;oBAACA,oBAASA,CAACA,aAAaA,EAACA;wBACrBA,QAAQA,EAAMA,mBAAiBA;qBAClCA,CAACA;;uCAKDA;gBAADA,yBAACA;YAADA,CAACA,AAPD,IAOC",
+  "sourcesContent": [
+    "import {Component,Inject} from \"mangular/annotate\";\nimport DashboardTemplate from \"../template/pages/dashboard\";\n\n@Component('wcDashboard',{\n    template    : DashboardTemplate\n})\nclass DashboardComponent {\n    constructor() {\n        console.info(\"DashboardComponent constructor\");\n    }\n}\n\n\n"
+  ]
+}

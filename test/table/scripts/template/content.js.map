@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "content.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "content.ts"
+  ],
+  "names": [],
+  "mappings": ";;;;YAAA,oBAAe,wsEAqCd,EAAC",
+  "sourcesContent": [
+    "export default `\n<md-content layout=\"column\" flex>\n<md-table-container>\n  <table data-md-table data-md-row-select=\"!$ctrl.hideCheckboxes\" data-ng-model=\"$ctrl.selected\" md-progress=\"$ctrl.promise\">\n    <thead ng-if=\"!$ctrl.hideHead\" md-head data-md-order=\"$ctrl.query.order\" md-on-reorder=\"$ctrl.onReorder\">\n      <tr md-row>\n        <th md-column md:order:by=\"id\"><span>Ext</span></th>\n        <th md-column md:order:by=\"name\"><span>Dessert (100g serving)</span></th>\n        <th md-column md:order:by=\"type\"><span>Type</span></th>\n        <th md-column md:order:by=\"status\" data-md-desc><span>Status</span></th>\n        <th md-column md:order:by=\"team\" data-md-desc><span>Team</span></th>\n        <th md-column data-md-numeric data-md-order-by=\"queue\"><span>Queue</span></th>\n        <th md-column data-md-numeric data-md-order-by=\"pending_leads\"><span>Cap</span></th>\n        <th md-column data-md-numeric data-md-order-by=\"taken_leads\"><span>Taken</span></th>\n        <th md-column data-md-numeric data-md-order-by=\"total_leads\"><span>Total</span></th>\n        <th md-column data-md-order-by=\"crm_status\"><span>CRM</span></th>\n      </tr>\n    </thead>\n    <tbody md-body>\n      <tr md-row md-select=\"dessert\" md-on-select=\"$ctrl.onSelect\" md-on-deselect=\"$ctrl.onDeselect\" x-md-auto-select=\"!$ctrl.blah\" ng-disabled=\"$ctrl.dessert.calories.value > 400\" data-ng-repeat=\"dessert in $ctrl.desserts | filter: filter.search | orderBy: $ctrl.query.order | limitTo: $ctrl.query.limit : ($ctrl.query.page -1) * $ctrl.query.limit\">\n        <td md-cell>{{dessert.id}}</td>\n        <td md-cell>{{dessert.name}}</td>\n        <td md-cell>{{dessert.type | uppercase}}</td>\n        <td md-cell>{{dessert.team}}</td>\n        <td md-cell>{{dessert.status}}</td>\n        <td md-cell>{{dessert.queue}}</td>\n        <td md-cell>{{dessert.pending_leads}}</td>\n        <td md-cell>{{$ctrl.percent(dessert.taken_leads,dessert.total_leads) | number: 2}}%</td>\n        <td md-cell>{{dessert.total_leads}}</td>\n        <td md-cell>\n            <md-icon>{{dessert.crm_status==true?'done':'error_outline'}}</md-icon>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</md-table-container>\n</md-content>\n`;"
+  ]
+}

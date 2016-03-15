@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "index.ts"
+  ],
+  "names": [
+    "MyOther",
+    "MyOther.constructor",
+    "MyOther.config",
+    "MyOther.run",
+    "MyApp",
+    "MyApp.constructor",
+    "MyApp.config",
+    "MyApp.run"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;YAcA;gBAAAA;gBAaAC,CAACA;gBAVUD,cAAMA,GADbA,UACuCA,IAAIA,EAAUA,OAAOA;oBACxDE,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,IAAIA,EAACA,IAAIA,CAACA,CAACA;oBAC7BA,OAAOA,CAACA,IAAIA,CAACA,OAAOA,EAACA,OAAOA,CAACA,CAACA;gBAClCA,CAACA;gBAGMF,WAAGA,GADVA,UACmBA,IAAwBA;oBACvCG,OAAOA,CAACA,IAAIA,CAACA,IAAIA,CAACA,IAAIA,EAACA,KAAKA,EAACA,IAAIA,CAACA,QAAQA,CAACA,CAAAA;gBAC/CA,CAACA;gBATDH;oBAACA,iBAAMA;oBACOA,WAACA,iBAAMA,CAACA,eAAeA,CAACA,CAAAA;oBAAOA,WAACA,iBAAMA,CAAAA;;;;mBAA7CA,iBAAMA,QAGZA;gBAEDA;oBAACA,cAAGA;oBACOA,WAACA,iBAAMA,CAAAA;;;;mBAAXA,cAAGA,QAETA;gBAELA,cAACA;YAADA,CAACA,AAbD,IAaC;YAED;gBAAAI;gBAYAC,CAACA;gBATUD,YAAMA,GADbA,UACuCA,IAAIA;oBACvCE,8BAA8BA;gBAClCA,CAACA;gBAGMF,SAAGA,GADVA,UACoCA,IAAIA;oBACpCG,8BAA8BA;gBAClCA,CAACA;gBARDH;oBAACA,iBAAMA;oBACOA,WAACA,iBAAMA,CAACA,eAAeA,CAACA,CAAAA;;;;mBAA/BA,eAAMA,QAEZA;gBAEDA;oBAACA,cAAGA;oBACOA,WAACA,iBAAMA,CAACA,eAAeA,CAACA,CAAAA;;;;mBAA5BA,YAAGA,QAETA;gBAELA,YAACA;YAADA,CAACA,AAZD,IAYC;YAGD,kBAAO,CAAC,KAAK,CAAC,uBAAuB,CAAC,CAAC",
+  "sourcesContent": [
+    "import Angular from \"mangular/annotate\";\nimport {Config} from \"mangular/annotate\";\nimport {Run} from \"mangular/annotate\";\n\nimport {Inject} from \"mangular/annotate\";\nimport \"mangular/angular/animate\";\n\nimport {HttpServiceProvider} from \"./providers/my-provider\";\n\nimport \"./providers/my-provider\";\nimport \"./controllers/my-controller\";\nimport \"./directives/my-directive\";\n\n\nclass MyOther {\n\n    @Config\n    static config(@Inject('$httpProvider') http, @Inject myConst){\n        console.info(this.name,http);\n        console.info(\"CONST\",myConst);\n    }\n\n    @Run\n    static run(@Inject http:HttpServiceProvider){\n        console.info(this.name,\"RUN\",http.defaults)\n    }\n\n}\n\nclass MyApp {\n\n    @Config\n    static config(@Inject('$httpProvider') http){\n        //console.info(this.name,http)\n    }\n\n    @Run\n    static run(@Inject('$httpProvider') http){\n        //console.info(this.name,http)\n    }\n\n}\n\n\nAngular.start('mangular/router/index');\n\n"
+  ]
+}

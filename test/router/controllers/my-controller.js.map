@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "my-controller.js",
+  "sourceRoot": "/Users/Grigor/work/ecmal/mangular/src",
+  "sources": [
+    "my-controller.ts"
+  ],
+  "names": [
+    "MyController",
+    "MyController.constructor"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;YAKA;gBAKIA;oBACIC,OAAOA,CAACA,IAAIA,CAACA,cAAcA,EAACA,IAAIA,CAACA,OAAOA,CAACA,CAACA;gBAC9CA,CAACA;gBAJDD;oBAACA,iBAAMA;;mBAASA,iCAAOA,UAAWA;gBAHtCA;oBAACA,qBAAUA;;iCAQVA;gBAADA,mBAACA;YAADA,CAACA,AARD,IAQC",
+  "sourcesContent": [
+    "import {Controller} from \"mangular/annotate\";\nimport {Inject} from \"mangular/annotate\";\n\nimport {MyService} from \"../services/my-service\";\n\n@Controller\nclass MyController {\n\n    @Inject private service:MyService;\n\n    constructor(){\n        console.info(\"MyController\",this.service);\n    }\n}"
+  ]
+}
