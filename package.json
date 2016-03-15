@@ -4,6 +4,11 @@
   "registry"      : "github",
   "vendor"        : "ecmal",
   "main"          : "build",
+  "directories"     : {
+    "source"        : "src",
+    "tests"         : "test",
+    "vendor"        : "out"
+  },
   "scripts"       : {
       "runtime"   : "elp compile -w -t -o ../mangular/out ../runtime",
       "mangular"  : "elp compile -w -t",
