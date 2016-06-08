@@ -1,0 +1,274 @@
+{
+  "name": "mangular",
+  "vendor": "ecmal",
+  "version": "0.0.8",
+  "registry": "github",
+  "bundle": false,
+  "libraries": {
+    "ecmal/core": "0.0.8",
+    "ecmal/runtime": "0.0.8",
+    "ecmal/browser": "0.0.1"
+  },
+  "author": {
+    "name": "Sergey Mamyan",
+    "email": "sergey.mamyan@gmail.com"
+  },
+  "commit": "467d9cc854eed6117688b4b1729566c9222d75b0",
+  "repository": "https://github.com/ecmal/mangular.git",
+  "modules": {
+    "angular/angular": {
+      "name": "angular/angular",
+      "version": "ba3528b5d40fb7bcec11fe0463b3a334",
+      "size": 1127535,
+      "hash": "eb86b71c8ddfb11349157ca8e7465fc8",
+      "files": {
+        ".d.ts": {
+          "size": 165,
+          "hash": "ba3528b5d40fb7bcec11fe0463b3a334",
+          "sha": "0391823dedaab44641e6648f015ddbe8d13a4001"
+        },
+        ".js": {
+          "size": 1127535,
+          "hash": "eb86b71c8ddfb11349157ca8e7465fc8",
+          "sha": "e5c62e732300e6e24bc6c4868dc1066d4d86aa7e"
+        }
+      }
+    },
+    "angular/animate": {
+      "name": "angular/animate",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 149726,
+      "hash": "32a5d4c0ce270e2c1b9588967f7fc31b",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 149726,
+          "hash": "32a5d4c0ce270e2c1b9588967f7fc31b",
+          "sha": "248d289c727a06f05c9f42e7b65ff543c9e515c3"
+        }
+      }
+    },
+    "angular/aria": {
+      "name": "angular/aria",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 15103,
+      "hash": "f6b337964fee7d6de0799d0444afb08c",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 15103,
+          "hash": "f6b337964fee7d6de0799d0444afb08c",
+          "sha": "6df42c2cdd6a1f3598e3e51a83c2ed67fe9853c1"
+        }
+      }
+    },
+    "angular/material": {
+      "name": "angular/material",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 849648,
+      "hash": "049197ad39b73c19bbe2482c1d4b04b3",
+      "files": {
+        ".css": {
+          "size": 428981,
+          "hash": "46af97d920a21fe0ed5320a93fdb3bf8",
+          "sha": "97d54861bd119a2ebc94065f5762647f7a2e2726"
+        },
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 849648,
+          "hash": "049197ad39b73c19bbe2482c1d4b04b3",
+          "sha": "bc911b03b706233f6d60a07a82701d4a49488ec9"
+        }
+      }
+    },
+    "angular/messages": {
+      "name": "angular/messages",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 27534,
+      "hash": "4198df7a21e4da8988a9144b99d95fc6",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 27534,
+          "hash": "4198df7a21e4da8988a9144b99d95fc6",
+          "sha": "4ecba61344f40aa06f107a0289c1b162b34b4750"
+        }
+      }
+    },
+    "angular/route": {
+      "name": "angular/route",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 37485,
+      "hash": "7b83934ef78c483d44a0540ce5e245f5",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 37485,
+          "hash": "7b83934ef78c483d44a0540ce5e245f5",
+          "sha": "276111814e428070ec116ed042a3b7ab2ffa6d6a"
+        }
+      }
+    },
+    "angular/table": {
+      "name": "angular/table",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 37084,
+      "hash": "2a345e57acb240c0c472f6b35d28c48e",
+      "files": {
+        ".css": {
+          "size": 10604,
+          "hash": "c0c750e4a7f4cecc4d3e243c51a5df89",
+          "sha": "a58874c1f0d1e1097ee64ed9b0a7b6990a04e15a"
+        },
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 37084,
+          "hash": "2a345e57acb240c0c472f6b35d28c48e",
+          "sha": "9c613eaeec7a25e7e094469e86ab71f87ad597f9"
+        }
+      }
+    },
+    "angular/ui-router": {
+      "name": "angular/ui-router",
+      "version": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+      "size": 170056,
+      "hash": "bfca9f9fd645323c3d7a054174cfc663",
+      "files": {
+        ".d.ts": {
+          "size": 58,
+          "hash": "ae71cfd45b8ef4617e4cd2b5bae05f88",
+          "sha": "5268d6ca71f23229dd8be810de259c67f8a55cc9"
+        },
+        ".js": {
+          "size": 170056,
+          "hash": "bfca9f9fd645323c3d7a054174cfc663",
+          "sha": "3f52ee557bfae0c8811cbeb34be9d171450e39c5"
+        }
+      }
+    },
+    "annotate": {
+      "name": "annotate",
+      "version": "a8bef7ec4b2b4bb80545792a6e3c4f67",
+      "size": 14151,
+      "hash": "010bc1ee825f1bfd8eb204de9459e372",
+      "files": {
+        ".ts": {
+          "size": 7100,
+          "hash": "a8bef7ec4b2b4bb80545792a6e3c4f67",
+          "sha": "8f413a05edd29cfdde00feb0c4263558867cedba"
+        },
+        ".js.map": {
+          "size": 16381,
+          "hash": "bc48deebb489912ee85bf0ee0814b7e0"
+        },
+        ".js": {
+          "size": 14151,
+          "hash": "010bc1ee825f1bfd8eb204de9459e372"
+        },
+        ".d.ts": {
+          "size": 1910,
+          "hash": "cd6fba2d0155e2b73b62e711761964dd"
+        }
+      }
+    },
+    "build": {
+      "name": "build",
+      "version": "2ac383d49fac77a3cf3fabb9e2ab5d0e",
+      "size": 5838,
+      "hash": "4e74d9d248056d346bef80fda48c4759",
+      "files": {
+        ".ts": {
+          "size": 4563,
+          "hash": "2ac383d49fac77a3cf3fabb9e2ab5d0e",
+          "sha": "fc0dddcd8f967d7e3f881580e44e53fce7ab7e02"
+        },
+        ".js.map": {
+          "size": 9659,
+          "hash": "4862513ae3d1bacd21409ac4151cfb67"
+        },
+        ".js": {
+          "size": 5838,
+          "hash": "4e74d9d248056d346bef80fda48c4759"
+        },
+        ".d.ts": {
+          "size": 574,
+          "hash": "27c35b3e3b00d17dc1560a7cabbe99f8"
+        }
+      }
+    },
+    "interfaces": {
+      "name": "interfaces",
+      "version": "e4e2a96f4013f88b60bf84c458780f7c",
+      "size": 296,
+      "hash": "c7ddd3bd39598d03b02fb516ef7fa1b0",
+      "files": {
+        ".ts": {
+          "size": 360,
+          "hash": "e4e2a96f4013f88b60bf84c458780f7c",
+          "sha": "cdfb7ca7df6ff889967bde49bd05e43f35d5ac9c"
+        },
+        ".js.map": {
+          "size": 593,
+          "hash": "ccaabf15a99b98226d0d9d047d400fc6"
+        },
+        ".js": {
+          "size": 296,
+          "hash": "c7ddd3bd39598d03b02fb516ef7fa1b0"
+        },
+        ".d.ts": {
+          "size": 405,
+          "hash": "cedfbdd5bbb9224f44757d2dc2c6d76a"
+        }
+      }
+    },
+    "module": {
+      "name": "module",
+      "version": "be1046d4a0bd6b75d11e75a57e4b8ede",
+      "size": 16769,
+      "hash": "0aea48eff4301295d75143848bf33a00",
+      "files": {
+        ".ts": {
+          "size": 13755,
+          "hash": "be1046d4a0bd6b75d11e75a57e4b8ede",
+          "sha": "b0c03aadce06e809348aba803fec391aec5c6393"
+        },
+        ".js.map": {
+          "size": 19862,
+          "hash": "418c95a0fe4ccde5bd4db96e63805149"
+        },
+        ".js": {
+          "size": 16769,
+          "hash": "0aea48eff4301295d75143848bf33a00"
+        },
+        ".d.ts": {
+          "size": 1891,
+          "hash": "0efaefadacd1b8acdb643c121da1b939"
+        }
+      }
+    }
+  }
+}

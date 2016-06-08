@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "file": "interfaces.js",
+  "sourceRoot": "/Users/Sergey/Work/BB/wcb-project/mangular/src",
+  "sources": [
+    "interfaces.ts"
+  ],
+  "names": [],
+  "mappings": "",
+  "sourcesContent": [
+    "export interface Logger {\n    [k:string]:any;\n    log(...args:any[]);\n    info(...args:any[]);\n    warn(...args:any[]);\n    error(...args:any[]);\n    debug(...args:any[]);\n}\n\nexport interface Scope {\n    [k:string]:any;\n    $new(isolate:boolean, parent?:Scope):Scope;\n    $watch(watchExpression:string|Function, listener:Function, objectEquality?:boolean);\n}\n\n"
+  ]
+}
