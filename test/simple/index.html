@@ -7,13 +7,15 @@
     <script src="../../out/runtime/package.js" main></script>
 
 </head>
-<body ng-controller="ApiController as api">
-API NAME : {{api.name}}
-<input ng-model="api.name">
-<button ng-click="api.sayHello()"></button>
-<mb-ApiComponent hero="api.name"/>
+<body ng-controller="MyController as mc">
+API NAME : {{mc.name}}
+<my-component></my-component>
 <script>
-    System.import('mangular/simple/index').catch(function(e){
+    system.import('mangular/simple/index')
+    .then(function () {
+        angular.bootstrap(document,['mangular/simple/index'])
+    })
+    .catch(function(e){
         console.error(e);
     })
 </script>

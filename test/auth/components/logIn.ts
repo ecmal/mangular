@@ -4,7 +4,8 @@ import LogInTemplate from '../template/pages/logIn'
 import {Auth} from "../services/auth";
 
 
-@Component('wcLogin',{
+@Component({
+    name        : 'wcLogin',
     template    : LogInTemplate
 })
 class LogIn{

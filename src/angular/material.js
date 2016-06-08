@@ -1,13 +1,13 @@
+system.register('mangular/angular/material',['./angular'], function(system,module) {
+
+
 /*!
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
  * v1.0.5
  */
-
-System.register(['./angular','./animate','./aria'], function(exports) {return { setters:[function(){},function(){},function(){}], execute: function() {
-
-
+(function( window, angular, undefined ){
 "use strict";
 
 (function(){
@@ -24464,8 +24464,9 @@ angular.module("material.core").constant("$MD_THEME_CSS", "md-autocomplete.md-TH
 })();
 
 
+})(window, window.angular);;window.ngMaterial={version:{full: "1.0.5"}};
 
 
-exports('default',angular);
-
-}}});
+module.export('default',angular);
+return { setters:[function(){}], execute: function() {}};
+});

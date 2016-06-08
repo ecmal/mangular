@@ -1,12 +1,12 @@
+system.register('mangular/angular/aria',['./angular'], function(system,module) {
+
+
 /**
  * @license AngularJS v1.5.0
  * (c) 2010-2016 Google, Inc. http://angularjs.org
  * License: MIT
  */
-
-System.register(['./angular'], function(exports) {return { setters:[function(){}], execute: function() {
-
-'use strict';
+(function(window, angular, undefined) {'use strict';
 
 /**
  * @ngdoc module
@@ -398,8 +398,10 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 }]);
 
 
+})(window, window.angular);
 
 
-exports('default',angular);
 
-}}});
+module.export('default',angular);
+return { setters:[function(){}], execute: function() {}};
+});

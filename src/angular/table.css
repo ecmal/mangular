@@ -23,7 +23,7 @@ md-edit-dialog > .md-content .md-title {
 }
 md-edit-dialog > .md-content md-input-container {
   margin: 0;
-  /*font-size: 13px;*/
+  font-size: 13px;
 }
 md-edit-dialog > .md-content md-input-container input {
   float: none;
@@ -62,7 +62,7 @@ md-edit-dialog > .md-actions .md-button + .md-button {
   box-sizing: border-box;
   height: 56px;
   padding: 0 24px;
-  /*font-size: 12px;*/
+  font-size: 12px;
   color: rgba(0, 0, 0, 0.54);
   border-top: 1px rgba(0, 0, 0, 0.12) solid;
 }
@@ -146,10 +146,10 @@ md-select.md-table-select > .md-select-value > span.md-select-icon:after {
   padding: 0;
 }
 .md-select-menu-container.md-table-select .md-text {
-  /*font-size: 13px;*/
+  font-size: 13px;
 }
 .md-select-menu-container.md-pagination-select .md-text {
-  /*font-size: 12px;*/
+  font-size: 12px;
 }
 md-toolbar.md-table-toolbar {
   box-shadow: none;
@@ -235,7 +235,7 @@ table.md-table .md-table-progress th md-progress-linear > .md-container > .md-ba
 }
 table.md-table th.md-column {
   color: rgba(0, 0, 0, 0.54);
-  /*font-size: 12px;*/
+  font-size: 12px;
   font-weight: bold;
   white-space: nowrap;
 }
@@ -344,7 +344,7 @@ table.md-table th.md-column md-checkbox {
 }
 table.md-table td.md-cell {
   color: rgba(0, 0, 0, 0.87);
-  /*font-size: 13px;*/
+  font-size: 13px;
   border-top: 1px rgba(0, 0, 0, 0.12) solid;
 }
 table.md-table td.md-cell.md-numeric md-select {

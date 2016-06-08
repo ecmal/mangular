@@ -1,7 +1,8 @@
 import {Component,Inject} from "mangular/annotate";
 import PublicLayoutTemplate from "../template/layouts/publicLayout";
 
-@Component('wcPublicLayout',{
+@Component({
+    name        : 'wcPublicLayout',
     template    : PublicLayoutTemplate,
 })
 class PublicLayout{

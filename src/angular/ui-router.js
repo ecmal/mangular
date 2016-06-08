@@ -1,7 +1,19 @@
+system.register('mangular/angular/ui-router',['./angular'], function(system,module) {
 
-System.register(['./angular'], function(exports) {return { setters:[function(){}], execute: function() {
 
+/**
+ * State-based routing for AngularJS
+ * @version v0.2.18
+ * @link http://angular-ui.github.com/
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
 
+/* commonjs package manager support (eg componentjs) */
+if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){
+  module.exports = 'ui.router';
+}
+
+(function (window, angular, undefined) {
 /*jshint globalstrict:true*/
 /*global angular:false*/
 'use strict';
@@ -4527,8 +4539,9 @@ function $IncludedByStateFilter($state) {
 angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
+})(window, window.angular);
 
 
-exports('default',angular);
-
-}}});;
+module.export('default',angular);
+return { setters:[function(){}], execute: function() {}};
+});

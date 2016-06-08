@@ -1,13 +1,6 @@
-import Definition = Reflect.Definition;
-import Method = Reflect.Method;
-import Module = Reflect.Module;
-import Class = Reflect.Class;
-import Param = Reflect.Param;
-import Member = Reflect.Member;
-import Scope = Reflect.Scope;
-import Field = Reflect.Field;
-import Path = Runtime.Path;
-
+import {Class,Method,Property} from "runtime/reflect/class";
+import {Module} from "runtime/module";
+import {Declaration} from "runtime/reflect/declaration";
 
 interface MangularModules {
     [name:string] : MangularModule
@@ -23,13 +16,13 @@ export class MangularModule {
         document.head.appendChild(link)
     }
     static getClassFunction(clazz:Class,modifier?:(instance:any)=>any):Function{
-        var fields:Field[] = <Field[]>clazz.members((f:Member)=>(
-            (f instanceof Field) && f.scope==Scope.INSTANCE && f.hasMetadata("angular:inject"))
+        /*var fields:Property[] = <Property[]>clazz.members((f:Member)=>(
+            (f instanceof Property) && f.scope==Scope.INSTANCE && f.hasMetadata("angular:inject"))
         );
-        var instanceParams = fields.map((f:Field)=>{
+        var instanceParams = fields.map((f:Property)=>{
             return f.getMetadata("angular:inject") || ( f.type==Object ? f.name:f.type.name);
         });
-        var instanceFields = fields.map((f:Field)=>{
+        var instancePropertys = fields.map((f:Property)=>{
             return f.name;
         });
         var constructParams = clazz.params.map((p:Param)=>{
@@ -37,8 +30,8 @@ export class MangularModule {
         });
         var closure:Function = (...args)=>{
             var instance = Object.create(clazz.constructor.prototype);
-            for(var i=0;i<instanceFields.length;i++){
-                instance[instanceFields[i]] = args.shift();
+            for(var i=0;i<instancePropertys.length;i++){
+                instance[instancePropertys[i]] = args.shift();
             }
             clazz.constructor.apply(instance,args);
             if(modifier){
@@ -47,10 +40,11 @@ export class MangularModule {
             return instance;
         };
         closure['$inject'] = instanceParams.concat(constructParams);
-        return closure;
+        return closure;*/
+        return null;
     }
     static getMethodFunction(method:Method):Function{
-        var target = method.owner.constructor;
+       /* var target = method.owner.constructor;
         if(method.scope==Scope.INSTANCE){
             target = target.prototype;
         }
@@ -66,15 +60,16 @@ export class MangularModule {
             return injection;
         });
 
-        return fn;
+        return fn;*/
+        return null;
     }
-    static getFieldValue(field:Field){
-        var target = field.owner.constructor;
+    static getPropertyValue(field:Property){
+        /*var target = field.owner.constructor;
         if(field.scope==Scope.INSTANCE){
             throw new Error('Value should be static field');
         }else{
             return Object.getOwnPropertyDescriptor(target,field.name).value
-        }
+        }*/
     }
     static run(main:string,angular:any){
         for(var m in modules){
@@ -82,8 +77,8 @@ export class MangularModule {
         }
         modules[main].run(angular);
     }
-    static get(def:Definition):MangularModule{
-        var module:Module;
+    static get(def:Declaration):MangularModule{
+        /*var module:Module;
         if(def instanceof Param){
             var owner = def.owner;
             if(owner instanceof Method){
@@ -103,23 +98,24 @@ export class MangularModule {
         if(!mModule){
             module.setMetadata("angular",mModule=modules[module.name]=new MangularModule(module));
         }
-        return mModule;
+        return mModule;*/
+        return null;
     }
     private get name():string{
         return this.module.name;
     }
     private module:Module;
-    private configs:Definition[];
-    private services:Definition[];
-    private providers:Definition[];
-    private controllers:Definition[];
-    private components:Definition[];
-    private directives:Definition[];
-    private filters:Definition[];
-    private runs:Definition[];
-    private constants:Definition[];
-    private factories:Definition[];
-    private values:Definition[];
+    private configs:Declaration[];
+    private services:Declaration[];
+    private providers:Declaration[];
+    private controllers:Declaration[];
+    private components:Declaration[];
+    private directives:Declaration[];
+    private filters:Declaration[];
+    private runs:Declaration[];
+    private constants:Declaration[];
+    private factories:Declaration[];
+    private values:Declaration[];
     private dependencies:string[];
     private initialized:boolean;
 
@@ -139,41 +135,41 @@ export class MangularModule {
         this.initialized = false;
     }
 
-    addConfig(def:Definition){
+    addConfig(def:Declaration){
         this.configs.push(def)
     }
-    addFactory(def:Definition){
+    addFactory(def:Declaration){
         this.factories.push(def)
     }
-    addRun(def:Definition){
+    addRun(def:Declaration){
         this.runs.push(def)
     }
-    addProvider(def:Definition){
+    addProvider(def:Declaration){
         this.providers.push(def);
     }
-    addService(def:Definition){
+    addService(def:Declaration){
         this.services.push(def);
     }
-    addController(def:Definition){
+    addController(def:Declaration){
         this.controllers.push(def);
     }
-    addDirective(def:Definition){
+    addDirective(def:Declaration){
         this.directives.push(def);
     }
-    addComponent(def:Definition){
+    addComponent(def:Declaration){
         this.components.push(def);
     }
-    addFilter(def:Definition){
+    addFilter(def:Declaration){
         this.filters.push(def);
     }
-    addValue(def:Definition){
+    addValue(def:Declaration){
         this.values.push(def);
     }
-    addConst(def:Definition){
+    addConst(def:Declaration){
         this.constants.push(def);
     }
     create(angular:any):any{
-        this.dependencies=['ng'];
+        /*this.dependencies=['ng'];
         this.module.dependencies.forEach(d=>{
             switch(d){
                 case 'mangular/angular/animate'     : this.dependencies.push('ngAnimate');break;
@@ -191,7 +187,8 @@ export class MangularModule {
             }
         });
         this.dependencies = this.dependencies.filter((e,i,a)=>a.indexOf(e)==i);
-        return angular.module(this.name,this.dependencies);
+        return angular.module(this.name,this.dependencies);*/
+        return null;
     }
     init(angular:any){
         if(!this.initialized){
@@ -235,28 +232,28 @@ export class MangularModule {
         }
     }
 
-    private initConfig(module:any,service:Definition){
+    private initConfig(module:any,service:Declaration){
         var fn = MangularModule.getMethodFunction(<Method>service);
         module.config(fn);
     }
-    private initRun(module:any,service:Definition){
+    private initRun(module:any,service:Declaration){
         var fn = MangularModule.getMethodFunction(<Method>service);
         module.run(fn);
     }
-    private initConst(module:any,service:Definition){
-        var field:Field = <Field>service;
+    private initConst(module:any,service:Declaration){
+        /*var field:Property = <Property>service;
         var name = field.getMetadata("angular:const") || field.name;
-        var value = MangularModule.getFieldValue(field);
-        module.constant(name,value);
+        var value = MangularModule.getPropertyValue(field);
+        module.constant(name,value);*/
     }
-    private initValue(module:any,service:Definition){
-        var field:Field = <Field>service;
+    private initValue(module:any,service:Declaration){
+        /*var field:Property = <Property>service;
         var name = field.getMetadata("angular:value") || field.name;
-        var value = MangularModule.getFieldValue(field);
-        module.value(name,value);
+        var value = MangularModule.getPropertyValue(field);
+        module.value(name,value);*/
     }
-    private initProvider(module:any,service:Definition){
-        if(service instanceof Class){
+    private initProvider(module:any,service:Declaration){
+        /*if(service instanceof Class){
             var clazz = <Class>service;
             var metadata = clazz.getMetadata("angular:provider");
             var name = metadata||clazz.name;
@@ -264,33 +261,33 @@ export class MangularModule {
             module.provider(name,MangularModule.getClassFunction(clazz,(instance)=>{
                 instance.$get = provide?MangularModule.getMethodFunction(<Method>provide):instance.provide||instance.$get;
             }));
-        }
+        }*/
     }
-    private initFactory(module:any,service:Definition){
-        if(service instanceof Method){
+    private initFactory(module:any,service:Declaration){
+        /*if(service instanceof Method){
             var method = <Method>service;
             var name = method.getMetadata("angular:factory")||method.name;
             module.factory(name,MangularModule.getMethodFunction(method));
-        }
+        }*/
     }
-    private initService(module:any,service:Definition){
-        if(service instanceof Class){
+    private initService(module:any,service:Declaration){
+        /*if(service instanceof Class){
             var clazz = <Class>service;
             var metadata = clazz.getMetadata("angular:service");
             var name = metadata||clazz.name;
             module.service(name,MangularModule.getClassFunction(clazz));
-        }
+        }*/
     }
-    private initController(module:any,service:Definition){
-        if(service instanceof Class){
+    private initController(module:any,service:Declaration){
+        /*if(service instanceof Class){
             var clazz = <Class>service;
             var metadata = clazz.getMetadata("angular:controller");
             var name = metadata||clazz.name;
             module.controller(name,MangularModule.getClassFunction(clazz));
-        }
+        }*/
     }
-    private initDirective(module:any,service:Definition){
-        if(service instanceof Class){
+    private initDirective(module:any,service:Declaration){
+        /*if(service instanceof Class){
             var clazz = <Class>service;
             var name = clazz.getMetadata("angular:directive")||clazz.name;
             var options:any = clazz.getMetadata("angular:directive:options") || {};
@@ -326,19 +323,19 @@ export class MangularModule {
         }else
         if(service instanceof Method){
             module.directive(service.name,MangularModule.getMethodFunction(<Method>service));
-        }
+        }*/
     }
-    private initComponent(module:any,service:Definition){
-        if(service instanceof Class) {
+    private initComponent(module:any,service:Declaration){
+        /*if(service instanceof Class) {
             var clazz = <Class>service;
             var name = clazz.getMetadata("angular:component") || clazz.name;
             var options:any = clazz.getMetadata("angular:component:options") || {};
             options.controller = MangularModule.getClassFunction(clazz);
             module.component(name, options);
-        }
+        }*/
     }
-    private initFilter(module:any,service:Definition){
-        if(service instanceof Class) {
+    private initFilter(module:any,service:Declaration){
+        /*if(service instanceof Class) {
             var clazz = <Class>service;
             var name = clazz.getMetadata("angular:filter") || clazz.name;
             var options:any = clazz.getMetadata("angular:filter:options") || {};
@@ -349,11 +346,11 @@ export class MangularModule {
                 return instance;
             });
             module.filter(name, closure);
-        }
+        }*/
     }
 
     run(angular:any){
-        angular.element(document).ready(()=> {
+        /*angular.element(document).ready(()=> {
             console.info("Mangular.start",this.module.name);
             var mMaterials = System.modules['mangular/angular/material'];
             var mTable = System.modules['mangular/angular/table'];
@@ -365,7 +362,7 @@ export class MangularModule {
                 MangularModule.loadCss(Path.dirname(mTable.url)+'/table.css');
             }
             angular.bootstrap(document, [this.module.name]);
-        })
+        })*/
     }
 
 

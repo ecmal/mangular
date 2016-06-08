@@ -15,9 +15,8 @@
       "server"    : "http-server -P http://wcb.freedomfinancialnetwork.com:8000"
   },
   "libraries"     : {
-    "ecmal/core"     : "0.0.1",
-    "ecmal/node"     : "0.0.1",
-    "ecmal/runtime"  : "0.0.2",
+    "ecmal/core"     : "0.0.8",
+    "ecmal/runtime"  : "0.0.8",
     "ecmal/browser"  : "0.0.1"
   }
 }

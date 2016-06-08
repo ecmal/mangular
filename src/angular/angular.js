@@ -1,13 +1,13 @@
+system.register('mangular/angular/angular',[], function(system,module) {
+
+
+
 /**
  * @license AngularJS v1.5.0
  * (c) 2010-2016 Google, Inc. http://angularjs.org
  * License: MIT
  */
-
-System.register([], function(exports) { return { setters:[], execute: function() {
-
-
-
+(function(window, document, undefined) {'use strict';
 
 /**
  * @description
@@ -10778,7 +10778,7 @@ function $HttpProvider() {
      *    - **headers** – `{Object}` – Map of strings or functions which return strings representing
      *      HTTP headers to send to the server. If the return value of a function is null, the
      *      header will not be sent. Functions accept a config object as an argument.
-     *    - **xsrfHeaderName** ��� `{string}` – Name of HTTP header to populate with the XSRF token.
+     *    - **xsrfHeaderName** – `{string}` – Name of HTTP header to populate with the XSRF token.
      *    - **xsrfCookieName** – `{string}` – Name of cookie containing the XSRF token.
      *    - **transformRequest** –
      *      `{function(data, headersGetter)|Array.<function(data, headersGetter)>}` –
@@ -30427,8 +30427,11 @@ $provide.value("$locale", {
     angularInit(document, bootstrap);
   });
 
+})(window, document);
+
+!window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 
-exports('default',angular);
-
-}}});
+module.export('default',angular);
+return { setters:[], execute: function() {}};
+});

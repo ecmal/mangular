@@ -3,8 +3,9 @@ import {Inject} from "mangular/annotate";
 import Template from "./template";
 import desserts from "./desserts";
 
-@Component('mbNutron',{
-    template: Template,
+@Component({
+    name     :'mbNutron',
+    template : Template,
 })
 class mbNutron {
 

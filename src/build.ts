@@ -1,24 +1,26 @@
-import * as Fs from 'node/fs';
-import * as Path from 'node/path';
-import * as https from "node/https";
+const Fs =  system.node.require('fs');
+const Path =  system.node.require('path');
+const https =  system.node.require('https');
 
-var TEMPLATES = [`
-System.register(['./angular'], function(exports) {return { setters:[function(){}], execute: function() {
-
-"ANGULAR.SOURCE";
-
-exports('default',angular);
-
-}}});`,`
-System.register([], function(exports) { return { setters:[], execute: function() {
-
+var TEMPLATES = [
+`system.register('mangular/angular/MODULENAME',['./angular'], function(system,module) {
 
 "ANGULAR.SOURCE";
 
-exports('default',angular);
+module.export('default',angular);
+return { setters:[function(){}], execute: function() {}};
+});`,
+`system.register('mangular/angular/MODULENAME',[], function(system,module) {
 
-}}});`];
-class Main{
+
+"ANGULAR.SOURCE";
+
+module.export('default',angular);
+return { setters:[function(){}], execute: function() {}};
+});`
+];
+
+export class Main{
     private angularVersion:string;
     private gitBaseUrl:string = '' ;
     private config :Object ;
@@ -28,25 +30,29 @@ class Main{
         this.getFiles();
     }
 
-    public static  changeModuleWrappers(data){
+    public static  changeModuleWrappers(data,file){
         var [firstReplacement,secondReplacement] = TEMPLATES[0].split('"ANGULAR.SOURCE";');
-        data = data.replace(/((.|\n)*)[(]function[-\s]?[(][-\s]?window, angular, undefined[-\s]?[)][-\s]?[{]/,firstReplacement)
-            .replace(/}[)][(]window, window\.angular[)]|}[)][(]window, angular[)][\s\S]*.*/,secondReplacement);
+        var moduleName = Path.basename(file,'.js');
+        firstReplacement = firstReplacement.replace(/MODULENAME/,moduleName);
+        console.info(moduleName,firstReplacement);
+        data = [firstReplacement,data,secondReplacement].join('\n');
         return data;
     }
 
     public static changeCssWrappers(data){
         return `export default \`${data}\`;`
     }
-    public static changeAngularWrappers(data){
+    public static changeAngularWrappers(data,file){
         var [firstReplacement,secondReplacement] = TEMPLATES[1].split('"ANGULAR.SOURCE";');
-        data = data.replace(/[(]function[(]window, document, undefined[)] [{]'use strict';/,firstReplacement)
-            .replace(/}[)][(]window, document[)];[\s\S]*.*/,secondReplacement);
+        var moduleName = Path.basename(file,'.js');
+        firstReplacement = firstReplacement.replace(/MODULENAME/,moduleName);
+        console.info(moduleName,firstReplacement);
+        data = [firstReplacement,data,secondReplacement].join('\n');
         return data;
     }
 
     public getConfiguration(){
-        let config  = Fs.readFileSync(Path.resolve(__dirname,'../../config.json'));
+        let config  = Fs.readFileSync(Path.resolve(system.node.dirname,'../../config.json'));
         this.config = JSON.parse(config.toString());
     }
 
@@ -77,8 +83,8 @@ class Main{
         }
     }
     public writeToSrcDir(fileName,data){
-        let path  = Path.resolve(Path.resolve(__dirname,'../../src'),fileName);
-        let dir = Path.dirname(path)
+        let path  = Path.resolve(Path.resolve(system.node.dirname,'../../src'),fileName);
+        let dir = Path.dirname(path);
         if(!Fs.existsSync(dir)){
             Main.createDir(dir);
         }
@@ -91,9 +97,10 @@ class Main{
         let data = options.data;
         let dest = options.destination;
         if(file=='angular.js'){
-            data = Main.changeAngularWrappers(data)
-        }else{
-            data = Main.changeModuleWrappers(data)
+            data = Main.changeAngularWrappers(data,file)
+        }else
+        if(Path.extname(file)=='.js'){
+            data = Main.changeModuleWrappers(data,file)
         }
         this.writeToSrcDir(dest,data);
     }

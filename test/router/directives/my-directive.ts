@@ -37,7 +37,8 @@ class MyController {
     }
 }
 
-@Component('comp',{
+@Component({
+    name        : 'comp',
     template    : '<div>{{$ctrl.name}}</div>'
 })
 class MyComponent {

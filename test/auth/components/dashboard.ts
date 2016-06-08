@@ -1,7 +1,8 @@
 import {Component,Inject} from "mangular/annotate";
 import DashboardTemplate from "../template/pages/dashboard";
 
-@Component('wcDashboard',{
+@Component({
+    name        : 'wcDashboard',
     template    : DashboardTemplate
 })
 class DashboardComponent {

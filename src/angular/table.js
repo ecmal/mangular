@@ -1,6 +1,14 @@
-System.register(['./angular'], function(exports) {return { setters:[function(){}], execute: function() {
+system.register('mangular/angular/table',['./angular'], function(system,module) {
 
-  'use strict';
+
+/*
+ * Angular Material Data Table
+ * https://github.com/daniel-nagy/md-data-table
+ * @license MIT
+ * v0.9.11
+ */
+(function (window, angular, undefined) {
+'use strict';
 
 angular.module('md.table.templates', ['md-table-pagination.html', 'md-table-progress.html', 'arrow-up.svg', 'navigate-before.svg', 'navigate-first.svg', 'navigate-last.svg', 'navigate-next.svg']);
 
@@ -1357,7 +1365,9 @@ function mdTableProgress() {
   };
 }
 
+})(window, angular);
 
-  exports('default',angular);
 
-}}});
+module.export('default',angular);
+return { setters:[function(){}], execute: function() {}};
+});

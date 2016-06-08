@@ -2,7 +2,8 @@ import {Component,Inject} from "mangular/annotate";
 import PrivateLayoutTemplate from "../template/layouts/privateLayout";
 import {Menu} from "../services/menu";
 
-@Component('wcPrivateLayout',{
+@Component({
+    name        : 'wcPrivateLayout',
     template    : PrivateLayoutTemplate,
 })
 class PrivateLayoutComponent {
